@@ -1,0 +1,1199 @@
+周报参考：
+
+本周工作重点:
+1、工作交接
+2、积分设置有效期公测协助测试
+3、功能管理接口联调测试，联调问题排查修复
+4、开放平台反馈问题协助排查
+5、B模块反馈问题协助排查
+本周工作详情:
+  [完美校园功能管理] 
+1、工作交接，交接文档整理【60%】
+2、功能管理接口文档和手机端协助定义【已完成】 3、功能管理需求开发【70%】  
+    1）手机端接口修改   
+    2）后台管理功能修改     
+    3）初始化学校功能配置  
+
+  [积分平台] 
+1、积分设置有效期功能开发，编写测试代码，公测协助测试，测试bug修复【已完成】
+ ﻿ 
+［B模块］ 
+1、B模块交接，交接文档整理【60%】 
+2、四川交通职业学院外嵌标卡，钥匙串配置协助，问题排查【已完成】
+3、江西婺源茶业职业学院建行悦生活外嵌标卡报错问题排查，签名失败问题需银行侧协助排查【正式协助】
+3、甘肃农业大学外嵌钥匙串协助配置，问题排查【已完成】
+4、成都纺织成纺app中进入虚拟卡每次都需要输入密码问题协助前端排查【已完成】 
+5、浙江理工大学农行外嵌标卡样式修改，反馈问题协助排查【已完成】
+6、健康打卡外嵌浙财大东方学院反馈问题协助排查【正式协助】
+7、B模块移除开发平台模块相关代码【公测测试】 8、逐个检查B模块内由前端页面传递三方唯一标识的宿主，优化处理，相关参数使用session获取【公测】
+9、洋浦经济开发区高级技工学校中行对接，已协调相关人员提供银行参数，疫情原因，银行暂时无法提供相信息，需求挂起【65%】 
+10、B模块域名切换【公测已自测，已协调产品提测试单】 
+  [1] 协调运维搭建公测环境，公测测试【公测】            
+  [2] 接口地址相关参数域名切换【公测】  
+  [3] cookie写入域名切换【公测】  
+  [4] 宿主配置相关地址参数切换【公测】﻿ 
+
+﻿   [开放平台]
+1、开放平台交接，交接文档整理【60%】
+2、开放平台新增获取标卡呼起扫一扫的参数接口【公测】
+3、唐山学院绑卡页面切换为新版绑卡页面协助配置【已完成】
+4 、武汉信息传播学院充值接口对接问题协助处理，目前反馈问题需要一卡通协助排查【正式协助】 
+5、开放平台升级httpclient版本【公测】 
+6、独立水电系统需求，开放平台新增一卡通接口【待提供接口文档】 
+7、客户端增加是否返回token开关，用户信息接口根据开关判断是否返回用户token，公测环境自测【公测】 
+8、管理后台应用分组审核时，分组id可修改，公测已自测【公测】 
+9、慢sql优化，一卡通充值日志表分表【公测】
+
+===================================================
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?
+flag=basicopengroupautobindecard_test123_485&
+ecardFunc=index&
+time=1640746091536&
+userid=110110&
+sign=0E06F2F2BCC57F6C481E481C4CF49618
+
+http://localhost:8000/bsacs/light.action?
+flag=basicopengroupautobindecard_test123_485&
+ecardFunc=index&
+time=1640746091536&
+userid=110110&
+sign=0E06F2F2BCC57F6C481E481C4CF49618
+
+http://localhost:8001/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=http%3A%2F%2Fexiaoyuan.17wanxiao.com%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dbasicopengroupautobindecard_test123_485%26appId%3D503dca8675774e34b945ca06a6e267af&client_id=503dca8675774e34b945ca06a6e267af&token=98f72261-4334-4d02-8fdb-3cf9c1f7ebca
+
+2022.01.04
+1.参加公司年度终结大会
+
+
++86-13783633217 黄圣超
+
+2022.01.05
+1.配合处理标卡外嵌企业微信接口测试工作
+2.开发配置代扣项目的上传代扣顺序接口(待调测)
+3.学习B模块配置请求开放平台的OAuth2接口逻辑
+
+jinmifeng
+
+
+	-新增获取扫一扫js api参数接口
+	-支持在跳转地址中传农行abcCode参数
+	-支持关闭虚拟卡接口
+	-获取高能码时，检查开关
+	-兼容虚拟卡开通状态字段的大小写问题
+	-修复可能请求健康码系统超时的问题
+	-优化充值限额提示信息
+
+
+2022.01.06
+1.处理婺源茶业职院建行对接问题(验签依旧没有通过，待协调)
+2.准备标卡、开放平台升级相关文件，两个项目都是master分支打包(标卡外嵌企业微信项目)
+
+
+
+30819d300d06092a864886f70d010101050003818b00308187028181008e2d311958165ed9896d5c7173e2b1b22ba9b3324e8764f12f601f0ef534884abc732d930c279ad25fd66f55176a8c7943df1c6e0221a31f540df168b0b17544260aa8f6e98833173f58c94112684b0d1715e890640f2f9890aa1072539fc86a169366ac93a11aa79150b09710f270a6cbc9eaed62f5cd66813a1d7ef5e78eeb020111
+
+30819d300d06092a864886f70d010101050003818b003081870281810099a851823cf6020fee06fc65d4842226e63cc51f7a3c333d295fb5ee1a53433666ff33eb7fb110227df8304f5c67d9cdf9e8c7fab869ebe3d3e96c9ba27a07e7458b96c69f3110c61d0a5a7f46912b2c5a6b62fa8a5a5bc25763beae41fa2f720e013d2b1db091713d268eb7c97fba0b62bc751c1fc96a213c0f757cf2069e95020111
+
+30819d300d06092a864886f70d010101050003818b003081870281810099a851823cf6020fee06fc65d4842226e63cc51f7a3c333d295fb5ee1a53433666ff33eb7fb110227df8304f5c67d9cdf9e8c7fab869ebe3d3e96c9ba27a07e7458b96c69f3110c61d0a5a7f46912b2c5a6b62fa8a5a5bc25763beae41fa2f720e013d2b1db091713d268eb7c97fba0b62bc751c1fc96a213c0f757cf2069e95020111
+
+
+2022.01.07
+1.处理47中支付对接问题
+2.处理婺源茶业职院建行对接问题(验签依旧没有通过，待协调)
+
+
+B模块==>bsacs管理>>B模块配置管理,新增选择不同宿主，配置数据，有些数据需要嵌入应用方提供，有些数据需要我们给对方提供，如对接标准版应用，我们要提供pubkey和对接文档
+
+其中的client_id参数需要到开放平台（OAuth2.0管理>>客户端管理）去配置，一般是用户主动申请，我们审核并配置url资源权限；如果是我们新增的客户端，需要设置跳转的应用回调地址，一般找产品或运维提供。
+
+
+之间-》
+30819d300d06092a864886f70d010101050003818b003081870281810099a851823cf6020fee06fc65d4842226e63cc51f7a3c333d295fb5ee1a53433666ff33eb7fb110227df8304f5c67d9cdf9e8c7fab869ebe3d3e96c9ba27a07e7458b96c69f3110c61d0a5a7f46912b2c5a6b62fa8a5a5bc25763beae41fa2f720e013d2b1db091713d268eb7c97fba0b62bc751c1fc96a213c0f757cf2069e95020111
+之后-》
+30819c300d06092a864886f70d010101050003818a003081860281804c7fc67d3792b8deb2c542ae78c8bef49f79a83b9f47ace0da0a72464f6a67366976de5c86dd63cf3c60499d385ab3a6aa540d229d18c055073c742090f9d19d50d4d76497e56d38b560cb4aa71064a0e033ff1221cb7295982c9ce272c46f77fc34c95375026dbeae5a173d8e428dbfabcdca8c994974f9176d1e1ddf8412fd020111
+
+=================================
+
+2022.01.10
+1.江西婺源茶业职业学院建行悦生活外嵌标卡对接问题处理(已完成)
+2.配置功能管理项目数据
+3.整理B模块和开放平台分支数据
+
+-接手B模块和开放平台项目，了解现状
+-参与功能管理开发工作
+
+【开放平台】
+--在youhua分支中
+1、开放平台升级httpclient版本【公测】 
+2、客户端增加是否返回token开关，用户信息接口根据开关判断是否返回用户token，公测环境自测【公测，新增oauth2_client_params表】 
+3、管理后台应用分组审核时，分组id可修改，公测已自测【公测】 
+4、慢sql优化，一卡通充值日志表分表【公测】
+5、独立水电系统需求，开放平台新增一卡通接口【待提供接口文档，暂停】 
+
+【B模块】
+1、洋浦经济开发区高级技工学校中行对接，已协调相关人员提供银行参数，疫情原因，银行暂时无法提供相信息，需求挂起【65%，暂停】 
+
+2、B模块移除开发平台模块相关代码【开放完成，待公测】 --ifaceremove分支
+3、逐个检查B模块内由前端页面传递三方唯一标识的宿主，优化处理，相关参数使用session获取【排查中，待开发改造】
+4、江西婺源茶业职业学院建行悦生活外嵌标卡报错问题排查，签名失败问题需银行侧协助排查【正式协助中】 
+
+需求是什么，有产品没有，如何测试，何时上线？
+
+http://paytest.17wanxiao.com:8060/CloudPayment/user/pay.do
+
+
+https://paytest.17wanxiao.com:38080/CloudPayment/user/pay.do
+
+
+2022.01.11
+1.给陈威提供缴费设置配置
+2.处理昆明琴房B模块问题
+3.配置功能管理数据，开发新的功能组件数据源（4个接口）
+4.协助验证正式的扫一扫嵌入应用是否生效
+5.协助排查http://exiaoyuan.17wanxiao.com/third_service_iface/service地址404问题
+6.
+7.
+
+待办：给B模块返回错误信息页面添加样式
+
+
+2022.01.12
+1.编写功能管理接口文档
+2.联调配置功能功能管理接口
+3.处理生产环境B模块玉渊谭中学标卡访问超时问题(对方服务器时间问题)
+
+
+
+2022.01.13
+1.处理三明附中请求出现无法绑卡报错问题(已处理，前置异常了)
+2.处理浙江理工职业学校宿主传参问题(处理中，可能需要动代码)
+3.协调排查扎兰屯职业学院云缴费支付失败问题(已处理，支付配置问题)
+
+2022.01.14
+1.B模块错误样式页面开发(已验证，待确定如何开发)
+2.功能管理打包问题
+3.处理浙江理工职业学校宿主传参问题开发(待定)
+4.协助排查长江师范学院人脸采集有时会报错问题(处理中)
+
+
+https://open.17wanxiao.com/api/authorize?client_id=715b73f17c494fa3b1f8d35dd7e6be17&response_type=code&redirect_uri=https%3A%2F%2Fwww.cqie.edu.cn%3A809%2Fepay%2Fwxpage%2Fwanxiao%2Ftermbind
+
+==============================
+2022.01.17
+1.B模块错误样式页面开发(已验证，待确定如何开发)
+2.协助排查长江师范学院人脸采集有时会报错问题(处理中)
+3.协助排查长江师范学院人脸采集有时会报错问题(处理中)
+4.江西婺源茶业职业学院建行悦生活外嵌标卡对接协助(已完成)
+5.功能管理相关开发配置
+
+
+
+ https://open.17wanxiao.com/api/authorize?client_id=0ef3db8750f64494b49e651491a363e8&response_type=code&redirect_uri=http%3A%2F%2F222.75.162.206%3A8089%2Fauth%3Fthird_id%3D1%26state%3DWMXY
+
+
+  https://open.17wanxiao.com/api/authorize?client_id=0ef3db8750f64494b49e651491a363e8&response_type=code&redirect_uri=http%3A%2F%2F222.75.162.206%3A8089%2Fauth%3Fthird_id%3D1%26state%3DWMXY
+
+2022.01.18
+1.处理银川高级中学授权失败问题(已处理)
+2.B模块对接优化（待思考）
+3.给k12门户提供公测测试充值的B模块地址(遇到会话失效问题，盱眙清楚浏览器缓存)
+
+https://paytest.17wanxiao.com:38080/CloudPayment/user/pay.do?ecardFunc=index&flag=basicopengroupautobindecard_person_0118&appId=64aef3e1becf4864b085ba83c3b788a8&code=8a18ac21a537e14ba1714adff0c7d9f6
+
+http://bk.frp.winery.ink/ecardh5/bootcallback
+
+
+本地B模块：
+http://192.168.152.70:8000/bsacs/light.action
+本地开放平台：
+http://192.168.152.70:8001/api/authorize
+本地标卡：
+http://192.168.152.70:9090/ecardh5/bootcallback
+
+
+
+http://192.168.152.70:8000/bsacs/light.action?flag=basicopengroupautobindecard_person_0118&ecardFunc=index&time=1642489968072&userid=110110&sign=732B122269E51F50128920CE8042433B
+
+
+{"ecardFunc":"index","flag":"basicopengroupautobindecard_person_0118","sign":"732B122269E51F50128920CE8042433B","time":"1642489968072","userid":"110110"}
+
+
+http://192.168.152.70:8001/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false
+&redirect_uri=http%3A%2F%2F192.168.152.70%3A9090%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dbasicopengroupautobindecard_person_0118%26appId%3D64aef3e1becf4864b085ba83c3b788a8
+&client_id=64aef3e1becf4864b085ba83c3b788a8
+
+&token=8a074654-389c-4c32-99ec-3d3c2ac25306
+
+2022.01.19
+1.对接南阳医专校园卡H5外嵌人脸采集报错问题(处理中)
+2.功能管理引入mybatis-plus组件
+3.协助处理k12门户测试充值对接邮储银行问题(处理中)
+4.协助温大商圈测试工作(进行中)
+
+http://192.168.152.70:8001/api/accessToken?code=8f459d619cb09ef3f2f25c02ec6a6afd&grant_type=authorization_code&client_secret=2637D92A382A76F1F8677CD6CE642043&redirect_uri=http://192.168.152.70:9090/ecardh5/bootcallback&client_id=64aef3e1becf4864b085ba83c3b788a8
+
+
+abchina_nysyxxnk
+
+f4f45409-3fe3-4bd8-b00b-94ab588a7708
+385cb12702e0421fbe8527ee3f128c0a80f04c19
+true
+/abchina/p12new_zj.pfx
+123456
+/abchina/ABC_Openbank_Sandbox.cer
+https://hub.17wanxiao.com/bsacs/abchina.action
+https://openbank.abchina.com/OAuthServer/OAuth/Token
+https://www.abchina.com/luascript/oauthLogin/
+https://openbank.abchina.com/GateWay/openabc/api/ket/userinfo/v1
+
+
+https://openbank.abchina.com/OAuthResource/api/userinfo  ---> https://openbank.abchina.com/GateWay/openabc/api/ket/userinfo/v1
+
+
+2022.01.20
+1.对接南阳医专校园卡H5外嵌人脸采集报错问题(处理中,运维配错地址了)
+2.功能管理配置测试数据
+3.协助处理k12门户测试充值对接邮储银行问题(处理中，已提供对接地址)
+4.协助温大商圈测试工作(进行中)
+5.处理广州南洋理工职业学院h5请求不到openid问题(处理中)
+
+B模块会通过String redirect_url = ToolsUtils.getUrl(suZhuJson.getString("clientUrl"),clientParam);给开放平台客户端的回调地址添加参数，
+会通过ToolsUtils.bindCardAndLogin(request,response,campusOpenUrl,forceBindCard,isBindEcard,domain,mobile,token,paramJson,cookiesecur);给开放平台认证地址添加参数(campusOpenUrl地址，paramJson参数)
+
+
+2022.01.21
+1.对接南阳医专校园卡H5外嵌人脸采集报错问题(处理中,运维配错地址了)
+2.功能管理配置测试数据
+3.协助处理k12门户测试充值对接邮储银行问题(处理中，已提供对接地址)
+4.协助温大商圈测试工作(进行中)
+5.处理广州南洋理工职业学院h5请求不到openid问题(处理中)
+6.处理功能管理bug， 学习vue打包
+
+=================================
+
+2022.01.24
+1.协助排查浙江商业技师学校支付时微信openid与appid不匹配问题
+2.处理功能管理缓存与查询参数不一致问题
+3.验证B模块增加报错页面方案
+
+
+
+
+2022.01.25
+1.B模块增加报错页面展示(20%)
+2.优化客户端查询逻辑
+3.协助排查多个学校支付中appid和openid不一致问题
+
+
+wx277b5943bc195e81
+ba7eb4dd07dcce18f79cc1a3096800af
+
+
+金华
+wx2b18b2478727c7a1
+
+
+2022.01.26
+1.协助排查处理多个学校支付中appid和openid不一致问题
+2.B模块增加报错页面展示(40%)
+
+https://api.17wanxiao.com/api/authorize?client_id=333d8fcd0a7a446cb01b1f0412fa4b70&response_type=code&redirect_uri=http%3A%2F%2Fzhou.17wanxiao.com%2FsmartWaterAndElectricityService%2FAloneEntrance?displayType=1&display=2
+
+{"displayType":"1","display":"2"}
+
+
+http://zhou.17wanxiao.com/smartWaterAndElectricityService/AloneEntrance
+http://zhou.17wanxiao.com/smartWaterAndElectricityService/AloneEntrance
+http://zhou.17wanxiao.com/smartWaterAndElectricityService/OpenCampus?nbapply=1&display=2
+http://zhou.17wanxiao.com/smartWaterAndElectricityService/OpenCampus?displayType=X
+
+oWTDSv4JN3-9-ZCGbbCHD5DrNDsc;可支付微信openid:oKyAu5w-yXAsnO2nCFa3Oz0m5M-w
+
+
+
+B模块->正式环境->企业微信宿主->weixinqy_ecardh5_test
+wwdf16739958bb735d
+bS2dmdvwFmtk-G-bvGMDRBR1EloQZZoqHeFykDfvdIw
+1000005
+https://hub.17wanxiao.com/
+
+2022.01.27
+1.协助处理测试山西大学支付问题(测试中)
+2.B模块增加报错页面展示(40%)
+3.协助排查处理多个学校支付中appid和openid不一致问题(测试中)
+4.处理系统之间的接口访问不同，日志出现UnknownHostException: XXXX.XXXX.com异常问题(修改项目所在服务器DNS：211.138.24.66--->192.168.0.186)
+
+newcapec123
+
+nameserver 211.138.24.66
+nameserver 192.168.0.186
+
+
+===================================================================
+
+
+rds0oba8r557tj98jnj4.mysql.rds.aliyuncs.com
+rds0oba8r557tj98jnj4882.mysql.rds.aliyuncs.com
+
+2022.02.08
+1.协助处理南京市金陵中学企业微信对接问题(处理中)
+2.协助测试山西大学支付缴费环境问题复现(处理中)
+3.处理功能管理学校关联功能数据异常问题(处理中)
+4.
+
+
+
+2022.02.09
+1.协助处理南京市金陵中学企业微信对接问题(处理中，是否绑卡)
+2.协助测试山西大学支付缴费环境问题复现(已完成)
+3.处理功能管理学校关联功能数据异常问题(完成20%)
+4.
+
+http://exiaoyuan.17wanxiao.com/ecardh5/bootcallback
+https://exiaoyuan.17wanxiao.com:7778/ecardh5/bootcallback
+
+2022.02.10
+1.协助处理南京市金陵中学企业微信对接问题(已完成)
+2.处理功能管理学校关联功能数据异常问题(20%)
+3.协助处理河南推拿学习对接树维APP问题(已处理)
+4.协助处理迪科扫码开门.s:p012应用测试(已提供配置地址)
+
+http://superapp.fdzcxy.edu.cn/auth-server/jwt/publicKey
+
+
+2022.02.11
+1.协助处理王欣支付缴费测试问题(处理中)
+2.协助处理张家口学校对接问题(处理中)
+3.整理B模块相关文档(处理中)
+4.验证B模块增加报错页面方案（后台返回错误模板html，使用JS写到页面，10%）
+5. B模块部分页面优化 (25%)
+6.处理南京金陵中学支付失败问题(处理中)
+7.开放平台注册、xss安全问题处理(待处理)
+
+
+
+
+开放平台登录安全验证过于简单，很容易被随意写入数据登录后，使用XSS一类攻击弄垮
+
+{"packageName":"TzwSVsOw","privateClient":"否","clientUrl":"1","state":"等待审核","inGroup":false,"ico":"1","icp":"1","type":"通用对接","id":2122,"describe":"555","clientName":"TzwSVsOw'\"()&%<acx><ScRiPt >apH8(9863)</ScRiPt>","userId":101437,"domain":"1","trustIpArray":["1"],"createDate":"2022-02-11 10:39:22","ico_category":"ico","clientSecret":"9B0BA87A4AE08C5D8C4A23B91AF7EF6D","mobileReturnByBindMoible":false,"userUnionId":"ffb48e453cf74b8fa20865605a90ac01","bindMobileJudgeName":"禁用","clientKey":"88cdd4decb8945cb8a02c8d80d5a6709","trustIp":"1","queryEcard":1,"clientAuditType":"REG_AUDIT","queryEcardName":"启用","icoURL":"https://open.17wanxiao.com/~/ico/1","clientType":0,"clientState":"AUDIT"}
+
+
+================================
+2022.02.14
+1.协助排查标卡修改密码时报错问题(已解决，开放平台未配置学校)
+2.协助排查PVC环境完校启动失败问题(20%)
+3.协助处理迪科扫码开门.s:p012应用测试(处理中)
+
+
+2022.02.15
+1.协助排查PVC环境完校启动失败问题(30%)
+2.协助处理迪科扫码开门.s:p012应用测试(处理中)
+3.协助处理汕头中博外嵌农行掌银报错问题(code无权限，待解决)
+4.完校新版本需求开发用时评估(待处理)
+
+
+2022.02.16
+1.协助排查PVC环境完校启动失败问题(30%，暂停需要)
+2.协助龚一凡排查weixingroup宿主访问ewpp报错问题(已处理)
+3.协助处理迪科扫码开门.s:p012应用测试(处理中，目前绑卡失败，查不到一卡通信息；更换用户token和学校code后绑卡成功,以后关注链路中的学校是否一致，和学校的前置是否收到请求日志来排查问题)
+4.协助处理汕头中博外嵌农行掌银报错问题(个人测试无问题，待反馈验证)
+5.完校5.5.3新版本需求评估(已完成)
+6.协助清河中学对接问题处理(处理中)
+7.协助排查浙江商业技师学院用户绑卡出现非法用户问题(处理中)
+
+
+
+2022.02.17
+1.协助排查PVC环境完校启动失败问题(已完成，并已启动成功)
+2.开始熟悉完校5.5.3新版本需求业务内容(处理中，5%)
+3.协助清河中学对接问题处理(处理中)
+4.协助排查浙江商业技师学院用户绑卡出现非法用户问题(处理中)
+5.处理浙财大东方学院健康打卡非授权接口对接问题(已完成，开放平台各服务器数据同步存在延迟，更新系统参数后其他数据库长时间查不到同步数据)
+6.协助处理青岛黄海学院云闪付校园卡绑卡问题(处理中)
+7.协助处理周口师范学院标卡外嵌企业微信对接问题(处理中)
+
+
+2022.02.18
+1.协助排查PVC环境完校启动失败问题(80%，已启动成功,待反馈是否存在其他问题)
+2.开始熟悉完校5.5.3新版本需求业务内容(处理中，10%，编写接口文档)
+3.协助清河中学对接问题处理(处理中)
+4.协助排查浙江商业技师学院用户绑卡出现非法用户问题(处理中)
+5.协助处理武汉体育学院H5嵌入对接问题(处理中)
+6.整理B模块宿主文档(待处理)
+7.考虑给B模块开放平台增加一个识别页面所属的功能(来区分错误归属)
+
+https://hub.17wanxiao.com/bsacs/scanCode.action?flag=weixingroup_zjsyjsxyznsd&paytype=weixin&ecardFunc=index
+
+
+https://exiaoyuan.17wanxiao.com/b-server/bsacs/dtop.action?flag=dtopbindcard_ecardh5_test&ecardFunc=index
+
+
+
+f9b35c90103843ce8a87a4c9bddc0984
+1000668
+F15CA6E38508450786FD4E0B451E29DD
+
+========================================================
+2022.02.21
+1.协助处理dt标卡测试宿主问题(将B模块旧系统数据迁移到新系统数据库)
+2.开始熟悉完校5.5.3新版本需求业务内容(处理中，10%，编写接口文档完成;开始开发)
+3.协助清河中学对接问题处理(处理中)
+
+1：微信
+2：新浪微博
+3：QQ
+4：小米
+5：支付宝
+
+CREATE TABLE `third_user_info_sync`  (
+  `ID_` int(8) NOT NULL AUTO_INCREMENT COMMENT '参数主键',
+  `USER_ID_` bigint(20) DEFAULT NULL COMMENT 'cp_user表id',
+  `THIRD_ID_` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '三方唯一标识',
+  `SOURCE_TYPE_` bigint(2) NOT NULL COMMENT '三方来源(1:微信，2:微博，3:QQ，4:小米，5:支付宝)',
+  `CUSTOM_PIC_` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '三方头像',
+  `NICKNAME_` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '三方昵称',
+  `CREATE_BY_` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '创建者',
+  `CREATE_TIME_` datetime(0) DEFAULT NULL COMMENT '创建时间',
+  `UPDATE_BY_` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT '更新者',
+  `UPDATE_TIME_` datetime(0) DEFAULT NULL COMMENT '更新时间',
+  `REMARK_` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`ID_`) USING BTREE,
+  INDEX `index_user_info_idx`(`USER_ID_`, `SOURCE_TYPE_`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+ALTER TABLE `cp_ad_shield_school`
+ADD COLUMN `OPERATION_BY_`  bigint(32) NULL COMMENT '操作人id' ,
+ADD COLUMN `OPERATION_NAME_`  varchar(50) COMMENT '操作人名称' ,
+ADD COLUMN `AD_PLACEMENT_IDS_` varchar(255) COMMENT '多个广告位置id(CP_AD_CONFIG.id)' ,
+ADD COLUMN `AD_PLACEMENT_NAMES_` varchar(255) COMMENT '多个广告位置名称(CP_AD_CONFIG.name)' ;
+
+2022.02.22
+1.协助处理dt标卡测试宿主问题(将B模块旧系统数据迁移到新系统数据库;该宿主配置中存在的&符号会被转义成&amp;保存，已修改宿主代码，随后续版本升级)
+2.开始熟悉完校5.5.3新版本需求业务内容(处理中，编写接口文档完成)
+3.完成个人资料4个接口的开发测试(70%)
+
+
+{"dtopCfg":{"childRelatedRoles":",3,","access_token_url":"http://218.28.133.181:13015/open/access_token","client_secret":"7CF2E3F28645EC8091DF6D1362ABD03B","redirect_uri":"https://api.17wanxiao.com/b-server/bsacs/light.action","rn_userinfo_url":"http://218.28.133.181:13015/api/mhpt/api/getUserInfo","client_id":"c7532c099bd24f19b57c41be53aead38","authorize_uri":"http://218.28.133.181:13015/open/oauth2/authorize?client_id=CLIENT_ID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code"},"salt":"lxh_lhf_zzy","isForceBindCard":"true","plateform":"xnccb","groupflag":"","customerCode":"","schemeIOS":"wmxtapp://","sameOrigin":"true","iv":"NEWCAPEC","client_id":"018511d3ca2248f780df9dd149e7e378","cookiesecur":"true","schemeAndriod":"wmxtapp://","domain":".17wanxiao.com","campusOpenUrl":"https://api.17wanxiao.com/api/authorize","key":"J5bKbDonDkoJbHyPNXVexknL","group":"false"}
+
+
+{"data":{"nickName":"你好啊","customPic":"http://192.168.121.73:8090/campus/~/userPic/view/39.jpg"},"code_":0,"result_":true,"message_":"成功"}
+
+
+2022.02.23
+1.协助处理dt标卡测试宿主问题(将B模块旧系统数据迁移到新系统数据库;该宿主配置中存在的&符号会被转义成&amp;保存，已修改宿主代码，随后续版本升级)
+2.完成个人资料4个接口的开发测试(70%)
+3.协助处理湖北警察学院非授权接口调用失败问题(完校后台未添加命令字，一卡通未支持接口脚本)
+4.整理B模块、开放平台资料
+
+
+-讲解各项目能力用途
+-讲解开放平台OAuth认证流程
+-讲解一个标准宿主的调用流程
+-根据上一步流程过一遍代码(包括系统技术模块)
+-讲解B模块和开放平台的主要功能模块
+-如何处理生产问题
+
+2022.02.24
+1.完成个人资料4个接口的开发测试(100%)
+2.熟悉运营平台代码及新版本需求开发内容，开始开发广告屏蔽新需求内容(20%)
+3.B模块开放平台培训
+
+
+
+https://api.17wanxiao.com/api/authorize?client_id=503dca8675774e34b945ca06a6e267af&response_type=code&redirect_uri=https%3A%2F%2Fexiaoyuan.17wanxiao.com%3A7778%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dbasicopengroupautobindecard_test123_485%26appId%3D503dca8675774e34b945ca06a6e267af&state=
+
+
+https://api.17wanxiao.com/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=https%3A%2F%2Fexiaoyuan.17wanxiao.com%3A7778%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dbasicopengroupautobindecard_test123_485%26appId%3D503dca8675774e34b945ca06a6e267af&client_id=503dca8675774e34b945ca06a6e267af&token=58ac95e9-fd60-4134-9c27-e0e721f548d0
+
+
+
+https://exiaoyuan.17wanxiao.com:7778/ecardh5/bootcallback?ecardFunc=index&flag=basicopengroupautobindecard_test123_485&appId=503dca8675774e34b945ca06a6e267af&code=d3925101b2023712ea33beed6d06cbd3
+
+2022.02.25
+1.完成个人资料4个接口的开发测试(100%，公测中)
+2.熟悉运营平台代码及新版本需求开发内容，开始开发广告屏蔽新需求内容(20%)
+
+
+运营平台调完校接口：
+http://opentest.17wanxiao.com/campus/cam_iface/invokInfo.action
+
+http://192.168.152.70:8090/campus/cam_iface/invokInfo.action
+===============================
+2022.02.28
+1.熟悉运营平台代码及新版本需求开发内容，开始开发广告屏蔽新需求内容(20%)
+2.处理dt平台宿主对接问题
+3.给许娇提供压测完校用户数据
+4.协助实践教学平台对接开放平台
+
+
+2022.03.01
+1.广告屏蔽模块改造测试(70%)
+2.排查公众号顶掉app登录状态问题(60%)
+3.使用docifs构建项目
+4.协助实践教学平台对接开放平台
+
+
+2022.03.02
+1.广告屏蔽模块改造测试(100%，待测试)
+2.排查公众号顶掉app登录状态问题(100%，待测试)
+3.协助塔里木职业技术学院农行综合收银台对接T6(查询不到用户)
+4.协助实践教学平台对接开放平台
+5.处理dt平台宿主对接问题
+
+
+
+优化：
+1.开放平台开发者密码重置
+2.查询日志区分是否授权，增加显示字段
+
+
+http://localhost:8001/api/authorize?client_id=716ed348e1764409995b539090cc89be&token=d5c9c39e-9d81-4d37-9cf9-e49b133a89df&redirect_uri=https%3A%2F%2Fecardh5.17wanxiao.com%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dwanxiao_ecardh5%26appId%3D716ed348e1764409995b539090cc89be&response_type=code&display=2
+
+
+
+
+
+https://opentest.17wanxiao.com/campus/cam_iface/thirdServiceForSys.action
+iface
+
+
+
+2022.03.03
+1.协助实践教学平台对接开放平台
+2.处理dt平台宿主完美学堂对接问题(如果跳转出APP后想要跳转回来，需要在B模块中配置schemeAndriod，实际上也是将这些数据加到cookies中)
+3.广告屏蔽模块改造测试(100%，待测试)
+4.广告位置可动态配置改造(100%)
+5.前端日志手机问题处理(待处理)
+
+2022.03.03
+1.协助清河中学对接问题处理(处理中)
+2.处理用户行为日志类型问题(待处理)
+3.协助实践教学平台对接开放平台(处理中)
+4.处理洋浦技工标卡外嵌中行没有宿主模板问题(处理中)
+5.处理江苏丰县中学对接问题(处理中)
+
+
+参数加签流程：
+appId： zzdx001
+customerCode： 1
+command： QuerySchoolList
+param： {}
+第一步：对参数按照key=value的格式，并按照参数名ASCII字典序排序如下： 
+stringA="appId=zzdx001&command=QuerySchoolList&customerCode=1&param={}"; 
+第二步：拼接API密钥： 
+
+stringSignTemp= stringA +"&key="+signKey
+
+sign=MD5(stringSignTemp).toUpperCase()="26CF3113D35DA7A917E46072FD4B0A4A" 
+
+
+echo > logs/catalina.out;kill -9 `ps aux|grep $PWD|grep -v grep|awk '{print $2}'` &>/dev/null;./bin/startup.sh;tailf logs/catalina.out
+==========================================
+2022.03.07
+1.处理用户行为日志类型问题(待处理)
+2.协助实践教学平台对接开放平台(处理中)
+3.处理洋浦技工标卡外嵌中行没有宿主模板问题(处理中)
+4.处理江苏丰县中学对接问题(处理中，双方生成签名规则不一致，配置false拼写错误)
+5.温大商圈对接问题处理
+6.协助处理虚拟卡提示原始密码问题(处理中)
+
+
+
+https://hub.17wanxiao.com/bsacs/light.action?customer_code=2000664&ecardFunc=index&flag=gmp_jsfx-jf&time=1646618655369&userid=737278&sign=A4D4D42E90FB4B048FCFF62E6ECD5404
+
+
+http://localhost:8001/api/authorize?client_id=4fa41c15f5da4ac3b34eb9b1943c00c6&response_type=code&redirect_uri=http%3A%2F%2Fpaytest.17wanxiao.com%3A8011%2FRechargeService%2FrechargePlaceOrder.do&token=b7f425ea-a118-4b63-ad01-dc74fd439118
+
+
+
+https://api.17wanxiao.com/api/authorize?client_id=361f12f058e544e2b9ee50e821e0eb56&response_type=code&redirect_uri=https%3A%2F%2Fexiaoyuan.17wanxiao.com%3A7778%2Fecardh5%2Fbootcallback&token=b7f425ea-a118-4b63-ad01-dc74fd439118
+
+https://api.17wanxiao.com/api/authorize?client_id=361f12f058e544e2b9ee50e821e0eb56&redirect_uri=https%3A%2F%2Fexiaoyuan.17wanxiao.com%3A7778%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dwanxiao_ecardh5%26appId%3D361f12f058e544e2b9ee50e821e0eb56%26token%3Db7f425ea-a118-4b63-ad01-dc74fd439118&response_type=code&display=2&token=b7f425ea-a118-4b63-ad01-dc74fd439118
+
+
+
+2022.03.08
+1.处理用户行为日志类型问题(100%,待测试)
+2.协助实践教学平台对接开放平台(处理中)
+3.处理洋浦技工标卡外嵌中行没有宿主模板问题(处理中,对接宿主存在问题，熟悉对接文档中)
+4.处理江苏丰县中学对接问题(已完成，双方生成签名规则不一致，配置false拼写错误)
+5.温大商圈对接问题处理
+6.处理开放平台xss和注册限制问题(5%)
+
+
+
+2022.03.09
+1.处理洋浦技工标卡外嵌中行没有宿主模板问题(处理中,对接宿主存在问题，熟悉对接文档中)
+2.处理开放平台xss和注册验证码问题(50%, 已完成)
+
+/open/oauth
+
+开放平台链路追踪日志记录，使用filter 、HttpRequestUtils、 ajaxOutPutJson + ThreadLocal+线程池进行过程数据记录
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=basicopengroupautobindecard_apptest_h5&ecardFunc=index
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=wanxiao_ecardh5&ecardFunc=index_new
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=wanxiao_apptest_h5&ecardFunc=index&token=6b46dbff-1439-49ca-9e96-711b0c8f50bc
+===================================
+
+2022.03.14
+1.实践平台对接
+2.中行支付对接处理
+3.支付宝小程序缓存bug处理
+4.完校5.5.3版本问题处理
+
+B模块日志：/logs/bsacs/v3.log
+
+
+
+
+CAMPUS:springRedis:AdShieldSchool:customerIdAdSource:485*
+
+
+CAMPUS:ADCONFIG:KEY:*
+
+
+2022.03.15
+1.中行对接宿主是否绑卡确认(待确认=>手动绑卡，已解决)
+2.温大商圈对接问题处理(绑卡登录时参数丢失，域名同源问题，没有生产账号测试，已处理)
+3.广告屏蔽问题验证(本机测试正常，待进一步确认，不同手机端公用一个缓存导致，不同数据通类型公用缓存导致，已解决)
+4.清河中学非授权接口对接访问错误处理(已处理)
+5.开放平台S01004余额非授权接口开发(待处理)
+
+
+
+
+
+https://hub.17wanxiao.com/bsacs/light.action?ecardFunc=index&time=1647313141838&userid=11&flag=basicopengroup_qhzxh5&sign=99A940D29C7934863DE1BFD9C3B22B4D
+
+
+2022.03.16
+1.中行对接宿主是否绑卡确认(待确认=>手动绑卡，已解决)
+2.放平台S01004余额非授权接口开发(30%)
+3.温大商圈对接问题处理(绑卡登录时参数丢失，域名同源问题，没有生产账号测试，已处理)
+4.实践教学平台对接问题处理()
+
+
+
+:{"code":"2c71484659012fb30e42f5c26549f0b9","grant_type":"authorization_code","client_secret":"3EF1D00B166BFB1F010BCEBA5B3758E9","redirect_uri":"https://zhny.nfcpwl.com/dragon/oneCardBack.html","client_id":"d5529ec36dcc417183bd09a7d83ebb52"}
+http://zhny.nfcpwl.com/dragon/oneCardBack.html
+
+
+http://api.17wanxiao.com/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=http%3A%2F%2Fzhny.nfcpwl.com%2Fdragon%2FoneCardBack.html%3FecardFunc%3Dindex%26flag%3Dbasicopengroup_yhg_test%26appId%3Dd5529ec36dcc417183bd09a7d83ebb52&client_id=d5529ec36dcc417183bd09a7d83ebb52&token=7be9a15f-064d-409a-963a-62b18b34ea73
+
+
+2022.03.17
+1.中行对接宿主是否绑卡确认(待确认=>手动绑卡，已解决)
+2.放平台S01004余额非授权接口开发(30%)
+3.温大商圈对接问题处理(绑卡登录时参数丢失，域名同源问题，没有生产账号测试，已处理)
+4.实践教学平台对接问题处理()
+
+
+
+-ALTER TABLE `oauth2_client`
+-ADD COLUMN `USER_INFO_RETURN_TOKEN_`  bit(1) NULL DEFAULT b'0' COMMENT '用户信息返回token';
+
+CREATE TABLE `oauth2_client_params` (
+`ID_`  bigint(20) NOT NULL AUTO_INCREMENT ,
+`CLIENT_ID_`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL ,
+`USER_INFO_RETURN_TOKEN_`  bit(1) NULL DEFAULT b'0' COMMENT '用户信息返回token' ,
+PRIMARY KEY (`ID_`),
+INDEX `index_clientid` (`CLIENT_ID_`) USING BTREE
+);
+
+开放平台旧需求
+1、用户信息接口增加token返回
+2、日志分表
+3、应用分组支持修改分组key
+
+
+2022.03.18
+1.整理优化文档，梳理进程，确定之后的工作内容
+2.实践教学平台对接问题处理（处理中）
+3.处理湖南第一师范学院H5嵌入联奕掌上APP白屏问题（处理中，联奕APP对接方式是标准对接，运维提供错地址了）
+4.完校5.5.3版本打包准备升级文件
+
+
+开放平台出现：no right call this scopes是没开对应的接口权限
+
+ 
+湖南第一师范学院联奕app我的预约	lianyi_hndysf-myorder	2022-03-18 12:09:56    26399efe9aea4a4196054c70d7057326
+	1187	湖南第一师范联奕琴房预约	lianyi_hndysf-qfyy	2022-03-18 12:09:04    26399efe9aea4a4196054c70d7057326
+	1186	湖南第一师范学院联奕外嵌缴费	lianyi_hndysf-cloud	2022-03-18 12:07:54   663d2bc9f4524b6ea2bd3356d02a673b
+	1185	湖南第一师范学院联奕app标卡充值	lianyi_hndysf-ecard   87c63c9df0624699b715435d4e0e2ce2
+
+=======================================
+	https://xqh5.17wanxiao.com/visitorService/error.html
+
+2022.03.21
+1.处理四川交通职业访客预约对接问题(配置不对)
+2.处理汕头幼师标卡嵌入农行需求(出现500报错问题，前置不可用)
+3.实践教学平台对接问题处理（处理中）
+
+4.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口)
+5.处理开放平台注册验证码限制+XSS过滤问题
+6.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置(非服务商需要一体化项目传值openid)
+
+
+农行掌银APP和农行快e通这俩宿主区别:  农行快e通宿主在cookies增删数据上更完善一些
+
+
+http://localhost:8001/api/authorize?response_type=code&login_type=bindlogin&customerCode=485&force_login=false&redirect_uri=https%3A%2F%2Fecardh5.17wanxiao.com%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex%26flag%3Dnhzy_stys_nhzy%26appId%3D6c5da4e1ab8346d99f8bb88aaff79e2c%26token%3Dfb734c44-d9e4-49f3-9e35-0f366591e200&client_id=981cca19e4f54c92a976ee49e38fac80&bind_validate_name=false&token=fb734c44-d9e4-49f3-9e35-0f366591e200
+
+
+http://localhost:8001/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=http%3A%2F%2Fzhny.nfcpwl.com%2Fdragon%2FoneCardBack.html%3FecardFunc%3Dindex%26flag%3Dbasicopengroup_yhg_test%26appId%3Dd5529ec36dcc417183bd09a7d83ebb52&client_id=d5529ec36dcc417183bd09a7d83ebb52&token=fb734c44-d9e4-49f3-9e35-0f366591e200
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=basicopengroup_liantong_nfc_test&time=1647852882&userId=100001&sign=D61C28D7D0D4863A9B2E9F6825905255
+
+
+2022.03.22
+1.处理四川交通职业访客预约对接问题(配置不对)
+2.处理汕头幼师标卡嵌入农行需求(出现500报错问题，前置不可用)
+3.实践教学平台对接问题处理（处理中）
+
+4.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口)
+5.处理开放平台注册验证码限制+XSS过滤问题(已完成)
+
+6.处理黄河生物科技学院农行掌上银行APP内H5嵌入（获取不到openid问题）
+
+
+7.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置(非服务商需要一体化项目传值openid)
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=wanxiao_liantong_nfc_test&ecardFunc=index_unicom&token=36ffa689-149a-43c2-80d4-5a4b976d9290
+
+
+https://api.17wanxiao.com/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=https%3A%2F%2Fexiaoyuan.17wanxiao.com%3A7778%2Fecardh5%2Fbootcallback%3FecardFunc%3Dindex_unicom%26flag%3Dbasicopengroup_liantong_nfc_test%26appId%3Dcec8a5a535254366bd3440e80db81dd9%26customer_code%3D485&client_id=cec8a5a535254366bd3440e80db81dd9&token=12bf15f1-74c3-4d3b-91b9-91559c8c1a2c
+
+
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=basicopengroupautobindecard_test_0116&ecardFunc=index&time=1647940216566&userid=110110&sign=8EDFA6EC74E3256A3E73A79630977D67
+
+
+http://localhost:8888/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=http%3A%2F%2F192.168.121.230%3A8090%2Fh5%2Fwmxy_entrance.htm%3FecardFunc%3Dindex%26flag%3Dbasicopengroupautobindecard_test_0116%26appId%3D330506a7957d4add8cb37d8aef4aecd8&client_id=330506a7957d4add8cb37d8aef4aecd8&token=3672e83a-e71e-4533-b144-2f8739ecfb6c
+
+http://api.17wanxiao.com/api/1/vcard/pay/setting?access_token=5373db64a69ff4d3c9ede838ccde45bf
+
+2022.03.23
+1.处理四川交通职业访客预约对接问题(配置不对，跳转访客应用后报错)
+2.处理汕头幼师标卡嵌入农行需求(出现500报错问题，原因是前置不可用)
+3.实践教学平台对接问题处理（处理中）
+4.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，待公测验证)
+5.处理开放平台注册验证码限制+XSS过滤问题(已完成)
+6.处理黄河生物科技学院农行掌上银行APP内H5嵌入（获取不到openid问题，配置问题）
+
+7.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置(非服务商需要一体化项目传值openid)
+8.验证开放平台升级是否正常
+9.抽奖16章
+
+
+
+    {
+        "key": "payType",
+        "value": "",
+        "text": "支付类型(webchatpay:服务商，webchatpayThird:三方服务商)"
+    },
+
+
+2022.03.24
+1.实践教学平台对接问题处理（处理中）
+2.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，待公测验证)
+3.处理开放平台注册验证码限制+XSS过滤问题(已完成)
+4.处理黄河生物科技学院农行掌上银行APP内H5嵌入（获取不到openid问题，配置问题）
+5.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+7.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置(非服务商需要一体化项目传值openid)
+8.抽奖16章
+
+
+    树维
+    {
+        "key": "corpId",
+        "value": "",
+        "text": "钉钉微应用环境使用"
+    },
+
+
+    Do not support the current environment：notInDingTalk
+
+https://superapp.zjtu.edu.cn/pages/webview/webview?url=https%253A%252F%252Fapi.17wanxiao.com%252Fb-server%252Fbsacs%252Flight.action%253Fflag%253Dsupwisdomappbind_dd_swh5_test%2526ecardFunc%253Dindex
+
+https://superapp.zjtu.edu.cn/pages/webview/webview?url=http%253A%252F%252Flocalhost:8000%252Fbsacs%252Flight.action%253Fflag%253Dsupwisdomappbind_dd_swh5_test%2526ecardFunc%253Dindex%2526token%253DeyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIyMDE5MDAxIiwiaXNzIjoiY2FzLXBhc3Muemp0dS5lZHUuY24iLCJBVFRSX2lkZW50aXR5VHlwZUlkIjoiVDAxIiwiQVRUUl9hY2NvdW50SWQiOiIyN2VjY2I5MDlhZGUxMWVjYTUxNThhYjdmYmZlMTAzNyIsIkFUVFJfdXNlcklkIjoiMjdjYjM5ZDA5YWRlMTFlY2E1MTU4YWI3ZmJmZTEwMzciLCJBVFRSX25hbWUiOiLmnY7msZ_ms6IiLCJBVFRSX2lkZW50aXR5VHlwZUNvZGUiOiJUMDEiLCJBVFRSX2lkZW50aXR5VHlwZU5hbWUiOiLmlZnogYzlt6UiLCJBVFRSX29yZ2FuaXphdGlvbk5hbWUiOiLpu4TmsrPkuqTpgJrlrabpmaIiLCJBVFRSX3VzZXJOYW1lIjoi5p2O5rGf5rOiIiwiZXhwIjoxNjQ4MjYzNjAxLCJBVFRSX29yZ2FuaXphdGlvbklkIjoiMCIsImlhdCI6MTY0ODA5MDgwMSwianRpIjoiSUQtVG9rZW4tNTMwOC1neFI3REhXZHpyUVJ6RXFSc3BsczFwQzhQWmk1enZqaSIsInJlcSI6InN1cGVyYXBwLnpqdHUuZWR1LmNuIiwiQVRUUl9vcmdhbml6YXRpb25Db2RlIjoiMCJ9.CJya9fetxIc2HGtY9YTK2KDBLaaCk1KEL0JAGmr87mFNAJsSe3Ittx-910ZarDkToWUF9PE4qclBqJCxfSJ-D4VJ9jtArG-X5OpBuB2EhLMeEOAlfGp2HNwBgH4U13sznVkqrnYhmN5Kttt3yvbuO2BFhQ3UujW7ah_XmhGWsxSLnZFIRIz9HmUDGxWRJmPzaAoNL0PO3fDEJliK8nizpdUkH4j2pCVYM0pt2meI3uel0lyJdRX1-slyfuP3hia1j9amBZSz61Y3huqhlgKHDD7Vt8VVqK8IyUfMgQxA1MKr4kxDchop69EGVn8gEQs_Obt4ZK8bk4WWJJ8Dqp4ZKw
+
+
+https://superapp.zjtu.edu.cn/pages/webview/webview?url=http%253A%252F%252Flocalhost:8000%252Fbsacs%252Flight.action%253Fflag%253Dsupwisdomappbind_dd_swh5_test%2526ecardFunc%253Dindex
+
+
+2022.03.24
+1.实践教学平台对接问题处理（处理中）
+2.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，待公测验证)
+3.处理开放平台注册验证码限制+XSS过滤问题(已完成)
+4.处理黄河生物科技学院农行掌上银行APP内H5嵌入（获取不到openid问题，配置问题）
+5.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+7.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置(非服务商需要一体化项目传值openid)
+8.
+8.抽奖16章
+
+
+
+INSERT INTO ifaceserver_log (appid_, appname_, command_, customercode_, customername_
+	, date_, execution_time_, internalcommand_, requestdata_, requesttype_
+	, requesturl_, responsedata_, id_)
+VALUES (?, ?, ?, ?, ?
+		, ?, ?, ?, ?, ?
+		, ?, ?, ?)
+
+
+		http://192.168.3.33:8009/b-server/login.action
+====================================
+2022.03.28
+1.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，公测中)
+2.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+3.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试中)
+4.日志生产CPU100%问题处理(已完成)
+5.处理李盼盼对接开放平台错误问题(已完成，三方配置问题)
+6.处理新疆轻工职业技术学院对接问题
+
+
+SECcd020afc4aaf61e438a5509cc6fefe935880f1af0d7e9b795db500f89b44b60e
+
+
+https://oapi.dingtalk.com/robot/send?access_token=c8bfd17ba5e05705453aeb5507143e4561981ca15c321f2c813829b56050bde1
+
+
+2022.03.29
+1.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，公测中，待升级)
+2.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+3.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试联调中)
+4.温大商圈对接(已完成)
+5.处理新疆轻工职业技术学院对接问题(新标卡对接中)
+361f12f058e544e2b9ee50e821e0eb56
+
+c5c51f2e65334f93b5fa8bb034c02a8c
+
+
+https://api.17wanxiao.com/api/authorize?client_id=c371635f9b9748ef843d095ce180d0df&response_type=code&display=2&force_bind_ecard=false&redirect_uri=http%3a%2f%2fjobtest.17wanxiao.com%2ftalents%2fh5%2fjob%2fentrance.action%3ftype%3d1
+
+2022.03.29
+1.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，公测中，待升级)
+2.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+3.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试联调中)
+4.温大商圈对接(已完成)
+5.处理新疆轻工职业技术学院对接问题(新标卡对接中)
+6.实践教学对接问题处理
+
+
+http://localhost:8000/bsacs/light.action?flag=basicopengroupautobindecard_ghqy_test&ecardFunc=index&time=1648610295166&userid=2022033018&sign=81AD08DD3D6D1C64CF522D4A3EA592CD
+
+http://localhost:8000/bsacs/light.action?flag=abchinanewcustomers_test_485&ecardFunc=index
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=abchinanew_test_485&ecardFunc=index&debug=true
+
+ALTER TABLE `bsacstest`.`bsacs_access_log` 
+ADD INDEX `idx_ACCESS_FLAG_TIME`(`ACCESS_FLAG_`, `ACCESS_START_TIME_`) USING BTREE;
+
+https://hub.17wanxiao.com/bsacs/light.action?ecardFunc=index&flag=basicopengroup_hygxy1632&key=FC66FF9FD64546D992D737DB43103B45
+
+2022.03.30
+1.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，公测中，待升级)
+2.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+3.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试联调中)
+4.温大商圈对接(已完成)
+5.处理新疆轻工职业技术学院对接问题(新标卡对接中)
+6.实践教学对接问题处理
+
+
+2022.03.31
+1.联通NFC嵌入校园卡项目对接(处理中，S01004非授权接口，公测中，待升级)
+2.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+3.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试联调中)
+4.温大商圈对接(已完成)
+5.处理新疆轻工职业技术学院对接问题(新标卡对接中)
+6.协助处理广州南洋理工职业学院外嵌缴费支付问题（处理中）
+7.处理江苏省南通卫生学校树维宿主前标卡问题(标准对接中)
+ede841d2336d43b5a8340b10ecd181c3 约惠购  https://zhny.nfcpwl.com/dragon/oneCardBack.html
+
+d6575f529cfe48f295f5af38008cc300 温州大学商圈   http://wdshop.59wanmei.com/h5/api/trilateral_entrance.do
+
+
+
+2022.04.01
+1.黄河交通学院对接数字化超级APP（钉钉微应用环境白屏问题，需要sameOrigin参数设为true，不设置X-Frame-Options属性）
+2.一体化项目待处理：标准宿主(自动绑卡)，增加服务商支付openid设置，非服务商需要一体化项目传值openid(测试联调中)
+3.处理新疆轻工职业技术学院对接问题(新标卡对接中)
+4.协助处理广州南洋理工职业学院外嵌缴费支付问题（支付获取的openid带逗号，处理中）
+5.处理江苏省南通卫生学校树维宿主前标卡问题(树维配置存在问题，标准对接中)
+6.处理中山三鑫钉钉应用应用打不开问题(B模块IP不在钉钉应用白名单中)
+7.处理西安翻译学院完美校园H5对接企业微信报错问题(企业微信秘钥配置错误，在线报修未配置)
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=weixinqy_xafy-repair&paytype=qyweixin&ecardFunc=index&code=D7b_SYsU0rRBSIfSWKVAgm73TDKt-NPWYJ97zynfOBA&state=login
+
+========================================================
+
+
+2022.04.06
+1.协助排查开放平台用户登录出现其他设备登录问题
+2.处理金华市外国语校园卡H5外嵌一体化平台(钉钉微应用宿主对接)
+3.处理新疆轻工职业学院对接问题
+4.B模块增加报错页面方案改造(40%)
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=basicopengroupautobindecard_kmxy-rlcj-lianyi&ecardFunc=index&appHost=lianyi
+
+
+
+http://localhost:8001/api/authorize?response_type=code&customerCode=44&force_login=false&redirect_uri=http%3A%2F%2Fcode.17wanxiao.com%3A82%2F%23%2Fhome%3FecardFunc%3Dindex%26flag%3Dwanxiao_bckt_class%26appId%3D6edce3ffd8da4a40913b1c9cc8244597%26customerId%3D44%26systemType%3DAndroid%26UAinfo%3Dwanxiao%26versioncode%3D10554101%26token%3D2d5fc0c5-bd47-4fae-8298-8e3907c41da1&client_id=6edce3ffd8da4a40913b1c9cc8244597&token=2d5fc0c5-bd47-4fae-8298-8e3907c41da1
+
+
+http://localhost:8001/api/authorize?response_type=code&hidden=true&customerCode=485&force_login=false&redirect_uri=http%3A%2F%2Fzhny.nfcpwl.com%2Fdragon%2FoneCardBack.html%3FecardFunc%3Dindex%26flag%3Dbasicopengroup_yhg_test%26appId%3Dd5529ec36dcc417183bd09a7d83ebb52&client_id=d5529ec36dcc417183bd09a7d83ebb52&token=2d5fc0c5-bd47-4fae-8298-8e3907c41da1
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=wanxiao_liantong_nfc_test&ecardFunc=index_unicom&token=36ffa689-149a-43c2-80d4-5a4b976d9290
+
+
+?activity=1
+
+门户当前用户信息:f3193e1108ac0522128920aedea0fbf8
+
+	{"bindEcard":true,"role":3,"ecardSchool":1,"dpcode":"0713020","sex":"未知","mobile":"19972518512","customerCode":"2000654","language":"zh","caseCustomerId":"","customerName":"麻城市思源实验学校","ecard_customerid":"2571","bindMobile":true,"customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/35.jpg","nickname":"🌾🌾🌾🌾🌾","name":"雷元花","guid":"1489856446794305538","outid":"421181200906305513","isHeadTeacher":false,"class":{"classId":939,"className":"11班","isHeadTeacher":false,"deptCode":939},"stuNo":"421181200906305513","uniqueIdentifier":"mr_1489856885380091905","child":{"childName":"蔡佳轩","childOutId":"421181200906305513","relation":"M"}}
+
+门户当前用户信息:ab72910abd872018a577af4fbd77143b
+		{"bindEcard":true,"role":3,"ecardSchool":1,"dpcode":"0722002","sex":"未知","mobile":"15897611188","customerCode":"2000656","language":"zh","caseCustomerId":"","customerName":"随州技师学院","ecard_customerid":"722","bindMobile":true,"customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/19.jpg","nickname":"曾建明一往无前","name":"张磊","guid":"1491673880434053121","outid":"421302200509111622","isHeadTeacher":false,"class":{"classId":1108,"className":"5班","isHeadTeacher":false,"deptCode":1108},"stuNo":"421302200509111622","uniqueIdentifier":"mr_1491692895919411202","child":{"childName":"张思彤","childOutId":"421302200509111622","relation":"F"}}
+
+1489856446794305538-421181200906305513
+
+		2000656_89A1A2D2A3CC933DDCAE8E8949737989_577472956de74e459a19d27b058edd1f
+		2000654_89A1A2D2A3CC933DDCAE8E8949737989_577472956de74e459a19d27b058edd1f  38235679
+
+
+
+		{"bindEcard":true,"role":3,"ecardSchool":1,"dpcode":"0713020","sex":"未知","mobile":"19972518512","customerCode":"2000654","language":"zh","caseCustomerId":"","dtUserInfo":{"userAuthInfo":{"realName":"雷元花","idType":"1","roleInfo":[{"role":3,"ecardSchool":true,"dpcode":"0713020","customerCode":"2000654","customerName":"麻城市思源实验学校","memberId":"mr_1489856885380091905"}],"mobileNo":"19972518512","deptInfo":[],"relativeInfo":[{"identityNo":"421181200906305513","realName":"蔡佳轩","ecardCustomerId":"2571","ecardSchool":true,"customerCode":"2000654","outid":"421181200906305513","deptInfo":[{"deptName":"11班","ecardSchool":true,"deptId":939,"customerCode":"2000654","supervisor":false,"customerName":"麻城市思源实验学校"}],"customerName":"麻城市思源实验学校","serialNo":"421181200906305513","relation":"M"}]},"nickName":"梁小冰烟雨蒙蒙","sex":0,"merged":false,"guid":"1489856446794305538","avatar":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/35.jpg"},"customerName":"麻城市思源实验学校","ecard_customerid":"2571","bindMobile":true,"customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/35.jpg","nickname":"梁小冰烟雨蒙蒙","name":"雷元花","guid":"1489856446794305538","outid":"421181200906305513","isHeadTeacher":false,"class":{"classId":939,"className":"11班","isHeadTeacher":false,"deptCode":939},"stuNo":"421181200906305513","uniqueIdentifier":"mr_1489856885380091905","child":{"childName":"蔡佳轩","childOutId":"421181200906305513","relation":"M"}}
+
+
+
+		{"bindMobile":false,"result_":true,"sex":"女","bindStu":false,"ecard_campus":"0","customPic":"https://server.59wanmei.com/campus/~/userPic/view/25.jpg","code_":0,"customerId":2000654,"token":"c3557957-9689-4038-b8a4-9d64680ebc54","name":"蔡佳轩","userId":38235679,"customerCode":"2000654","openid":"","deviceId":"","customerName":"麻城市思源实验学校","idNo":"421181200906305513","nickname":"破旧的苹果绿节拍器","registerSchId":"","outid":"421181200906305513","stuNo":"421181200906305513","ecard_customerid":"2571","message_":"成功","bindEcard":true,"mobile":"577472956de74e459a19d27b058edd1f_2000654_89A1A2D2A3CC933DDCAE8E8949737989","lastModifyTime":1649320804909}
+
+
+		{"bindEcard":true,"role":3,"ecardSchool":1,"dpcode":"0713020","sex":"未知","mobile":"19972518512","customerCode":"2000654","language":"zh","caseCustomerId":"","customerName":"麻城市思源实验学校","ecard_customerid":"2571","bindMobile":true,"customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/35.jpg","nickname":"🌾🌾🌾🌾🌾","name":"雷元花","guid":"1489856446794305538","outid":"421181200906305513","isHeadTeacher":false,"class":{"classId":939,"className":"11班","isHeadTeacher":false,"deptCode":939},"stuNo":"421181200906305513","uniqueIdentifier":"mr_1489856885380091905","child":{"childName":"蔡佳轩","childOutId":"421181200906305513","relation":"M"}}
+
+
+{
+    "bindEcard":true,
+    "role":3,
+    "ecardSchool":1,
+    "dpcode":"0713020",
+    "sex":"未知",
+    "mobile":"19972518512",
+    "customerCode":"2000654",
+    "language":"zh",
+    "caseCustomerId":"",
+    "customerName":"麻城市思源实验学校",
+    "ecard_customerid":"2571",
+    "bindMobile":true,
+    "customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/35.jpg",
+    "nickname":"🌾🌾🌾🌾🌾",
+    "name":"雷元花",
+    "guid":"1489856446794305538",
+    "outid":"421181200906305513",
+    "isHeadTeacher":false,
+    "class":{
+        "classId":939,
+        "className":"11班",
+        "isHeadTeacher":false,
+        "deptCode":939
+    },
+    "stuNo":"421181200906305513",
+    "uniqueIdentifier":"mr_1489856885380091905",
+    "child":{
+        "childName":"蔡佳轩",
+        "childOutId":"421181200906305513",
+        "relation":"M"
+    }
+}		
+
+{
+    "bindEcard":true,
+    "role":3,
+    "ecardSchool":1,
+    "dpcode":"0713020",
+    "sex":"未知",
+    "mobile":"13971738915",
+    "customerCode":"2000654",
+    "language":"zh",
+    "caseCustomerId":"",
+    "customerName":"麻城市思源实验学校",
+    "ecard_customerid":"1527",
+    "bindMobile":true,
+    "customPic":"http://ncpcloud.newcapec.cn/file/file-service-provider/file/userpic/view/25.jpg",
+    "nickname":"身体力行孙佳君",
+    "name":"林火珍",
+    "guid":"1486920309591248898",
+    "outid":"421181200711025538",
+    "isHeadTeacher":false,
+    "class":{
+        "classId":952,
+        "className":"8班",
+        "isHeadTeacher":false,
+        "deptCode":952
+    },
+    "stuNo":"421181200711025538",
+    "uniqueIdentifier":"mr_1487260215135965185",
+    "child":{
+        "childName":"杨锦业",
+        "childOutId":"421181200711025538",
+        "relation":"M"
+    }
+}
+
+
+client_id=716ed348e1764409995b539090cc89be&token=54aefa4e-5961-4c68-85c3-97eefea4671e&response_type=code
+
+
+2022.04.07
+1.协助排查开放平台用户登录出现其他设备登录问题
+2.处理金华市外国语校园卡H5外嵌一体化平台(钉钉微应用宿主对接)
+3.处理新疆轻工职业学院对接问题
+4.B模块增加报错页面方案改造(40%)
+5.处理麻城市思源实验学校用户跳转报错问题
+
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=supwisdomapp_xyxy_recharge&ecardFunc=index&other=123&duijiefangshi=token
+2022.04.08
+1.协助排查开放平台用户登录出现其他设备登录问题
+2.处理金华市外国语校园卡H5外嵌一体化平台(钉钉微应用宿主对接)
+3.处理新疆轻工职业学院对接问题
+4.B模块增加报错页面方案改造(40%)
+5.处理麻城市思源实验学校用户跳转报错问题
+6.处理信阳学院嵌入充值token报错问题(部分服务器网络不通导致)
+
+
+1.需求：B模块日志不记录详细错误问题
+2.需求：开放平台日志关键字搜索问题
+3.需求：标卡完校token换accessToken问题
+
+https://open.17wanxiao.com/api/authorize?client_id=85764bf80e5d48a29591d38a42d1dcf9&response_type=code&redirect_uri=http%3A%2F%2F4j401n6759.wicp.vip%2Fauth%3Fthird_id%3D4%26to%3DpendingApprovalLeaveInfoList%26isHideBack%3D1%26state%3DWMXY         
+
+http%3A%2F%2F4j401n6759.wicp.vip%2F
+
+https://open.17wanxiao.com/api/authorize?client_id=85764bf80e5d48a29591d38a42d1dcf9&response_type=code&redirect_uri=http%3A%2F%2F4j401n6759.wicp.vip%2F
+
+
+
+https://api.17wanxiao.com/api/authorize?client_id=8b2a54e741a14308ae64dbb51af4c284&response_type=code&redirect_uri=http%3A%2F%2F4j401n6759.wicp.vip%2Fauth%3Fthird_id%3D4%26to%3DpendingApprovalLeaveInfoList%26isHideBack%3D1%26state%3DWMXY
+
+http://localhost:8001/api/authorize?client_id=8b2a54e741a14308ae64dbb51af4c284&response_type=code&redirect_uri=http%3A%2F%2F4j401n6759.wicp.vip%2Fauth%3Fthird_id%3D4%26to%3DpendingApprovalLeaveInfoList%26isHideBack%3D1%26state%3DWMXY
+
+========================================================
+2022.04.11
+1.B模块增加报错页面方案改造(40%)
+2.处理麻城市思源实验学校用户跳转报错问题(已解决，用户昵称字符存储服务器报错导致)
+3.协助测试开放平台新版本功能(已完成)
+4.标卡完校token换accessToken问题(测试中)
+5.处理贵州交通职业技术学院H5链接对接问题(不清楚对接方式)
+6.
+
+1.需求：B模块日志不记录详细错误问题
+2.需求：开放平台日志关键字搜索问题
+3.需求：标卡完校token换accessToken问题
+dtopbindcard_ecardh5_xnccb
+
+
+basicopengroup_gzjtzy_appcz&ecardFunc=index
+
+https://superapp.zjtu.edu.cn/pages/webview/webview?url=http%253A%252F%252Flocalhost:8000%252Fbsacs%252Flight.action%253Fflag%253Dsupwisdomappbind_dd_swh5_test%2526ecardFunc%253Dindex%2526token%253D%257BidToken%257D%250A%250A
+http://192.168.121.237:8000/bsacs/iframetest.action
+
+https://superapp.zjtu.edu.cn/pages/webview/webview?url=https%253A%252F%252Fapi.17wanxiao.com%252Fb-server%252Fbsacs%252Flight.action%253Fflag%253Dbasicopengroupautobindecard_apptest_h5%2526ecardFunc%253Dindex%2526time%253D1649744083793%2526userid%253D100003%2526sign%253D1309B778F39B7C6307E9994C66C41035%2526debug%253Dtrue
+
+
+2022.04.11
+1.B模块增加报错页面方案改造(40%)
+2.协助测试开放平台新版本功能(已完成)
+3.标卡完校token换accessToken问题(测试中)
+4.处理贵州交通职业技术学院H5链接对接问题(不清楚对接方式)
+5.处理新信阳学院对接树维APP出现获取token失败问题(网络原因)
+
+1.需求：B模块日志不记录详细错误问题
+2.需求：开放平台日志关键字搜索问题
+3.需求：B模块增加验签失败日志
+
+
+https://api.17wanxiao.com/b-server/bsacs/light.action?flag=basicopengroupautobindecard_apptest_h5&ecardFunc=index&time=1649812671687&userid=100003&sign=A19697B94E6FDAE3620D9DE728489ACA
+http://localhost:8000/bsacs/light.action?flag=basicopengroupautobindecard_apptest_h5&ecardFunc=index&time=1649812671687&userid=100003&sign=A19697B94E6FDAE3620D9DE728489ACA
+
+2022.04.12
+1.B模块增加报错页面方案改造(40%)
+2.协助测试开放平台新版本功能(已完成)
+3.标卡完校token换accessToken问题(测试中)
+4.处理贵州交通职业技术学院H5链接对接问题(不清楚对接方式)
+5.处理新信阳学院对接树维APP出现获取token失败问题(网络原因)
+6.增加B模块日志一键查询跳转功能
+
+javascript:openMenu('/bsacsAccessLog/manager.action');
+
+f35a930c-1877-49de-baed-1ebc31915f81
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=supwisdomapp_xyxy_recharge&ecardFunc=index&other=123&duijiefangshi=token
+
+supwisdomapp_sqgxycjapp
+1.对接困难的学校，定时单独汇报
+2.团队融合，定期培训，给张君阳他们分配任务
+3.多做文档输出(技术、业务)
+4.耳机更换
+
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=basicopengroup_gzjtzy_appcz&ecardFunc=index
+
+eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIyMTE0MDIwMTAzNTIiLCJST0xFUyI6IiIsImNyZWF0ZWQiOjE2NDk5MDExMjIxNTUsImV4cCI6MTY1MjQ5MzEyMn0.s7Tp0rUFKesnEkCQHKoc8uakHoA7qMmSGwzKxCnB5wJKowr0Vd00kGmMPKEiKr_9LPFSNpa4yGIOI3EGzkA9QcpXcFqNSjA4ICy80TO_6v0KGu3fYgVH8cBLDK8Z_l_3U7LUuTO8r2Z5GLv4SJjuGJPVN-RrkKMSrYVDp-HBmPw
+
+
+
+
+2022.04.14
+1.处理金华市外国语学校校园卡H5外嵌对接问题(不清楚宿主)
+2.协助处理信阳学院网络问题
+3.开发标卡完校token换accessToken需求（50%）
+4.开始熟悉华腾一站式服务宿主（5%）
+5.排查B模块日志连接超时报错问题(已完成，push脚本域名写错了)
+
+2022.04.15
+1.处理金华市外国语学校校园卡H5外嵌对接问题(不清楚宿主，已改用标准宿主)
+2.协助处理信阳学院网络问题
+3.开发标卡完校token换accessToken需求（50%）
+4.开始熟悉华腾一站式服务宿主（5%）
+5.排查B模块日志连接超时报错问题(已完成，push脚本域名写错了，问题还存在？？？，结果是tomcat下其他项目也有这个问题，日志还输出到了同一个文件)
+6.处理内蒙古交通职业技术学院对接问题
+7.处理青海大学访客审批和消息推送嵌入数维超级APP问题
+
+排查思路：
+1.数据库配置超时相关参数过短？版本不对应？
+2.项目中连接池参数不合理?连接地址不对、不通？缺少某些参数？
+
+婚姻的好处：陪伴、老有所养，虽然可能会不幸福；想一想你在生病的时候如果找不到医生的状态，就清楚陪伴的的重要性；人是一种群居动物，群居会让每个人更安全的活下去。
+
+
+https://hub.17wanxiao.com/bsacs/light.action?flag=supwisdomapp_qhdxfk&ecardFunc=index
+
+docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=localhost:2181/kafka -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -v /etc/localtime:/etc/localtime wurstmeister/kafka
+
+docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=localhost/kafka -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -v /etc/localtime:/etc/localtime wurstmeister/kafka
+
+======
+https://www.jianshu.com/p/e642793cd5de
+
+docker run -d --name zookeeper -p 2181:2181 -v /etc/localtime:/etc/localtime zookeeper
+
+
+docker run -d --name kafka --env KAFKA_ADVERTISED_HOST_NAME=localhost --env KAFKA_ZOOKEEPER_CONNECT=localhost:2181 --env KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 --env KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 --net=host wurstmeister/kafka
+
+
+./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+./kafka-console-producer.sh --broker-list localhost:9092 --topic test
+>hello # 发送一条消息并回车
+>world
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning

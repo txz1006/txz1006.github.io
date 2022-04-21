@@ -1,0 +1,720 @@
+日志记录：
+
+
+2021.09.06
+1.完成入职流程
+2.熟悉工作环境和人员信息
+3.完成开发环境的搭建(mysql|redis|idea|jdk|git等)
+
+4.下载熟悉项目信息(处理git clone 解决Permission Denied (publickey)等git权限问题)
+
+5.熟悉项目结构
+
+(web)action--->servies(register)--->manager--->redis--->dao
+
+
+9月第一周
+2021.09.07
+1.参加例会(服务器巡检、git与项目打包上线、arthas检查生产问题以及解决方案)
+2.熟悉项目开发文档
+3.业务开发(
+	1、前置检测日志第一次进入时，查询全部，改为只查询一条
+	2、去掉，根据学校名称等查询查询条件
+)
+4.前置通道公测环境项目升级
+
+2021.09.08
+1.协助查验微信小程序端部分用户未绑定手机号问题
+2.熟悉系统登录业务
+3.了解一键登录功能需求
+（
+1.阿里云的服务账户怎么来
+2.接口文档有没有
+3.怎么测试？
+）
+
+2021.09.09
+1.整理登录业务逻辑
+2.开发一键登录接口
+3.整合阿里云号码认证服务接口(70%)
+
+2021.09.10
+1.一键登录接口代码开发完成
+2.简单调测一键登录接口，处理过程中出现的问题
+============================
+
+9月第二周
+2021.09.13
+1.熟悉系统支付逻辑和微信小程序支付方式需求内容
+
+
+2021.09.14
+1.调整支付接口兼容微信小程序支付(暂停，改去做代扣相关)
+2.熟悉代扣平台签约相关API接口文档
+3.编写对接代扣签约接口相关文档内容
+4.开始开发代扣签约接口
+
+
+2021.09.15
+1.开发代扣签约接口(50%)
+
+
+2021.09.16
+1.开发代扣签约接口(已完成)
+2.编写测试用例，修订接口文档信息
+
+
+2021.09.17
+1.提交4个云签约接口代码
+2.在解卡解约功能中增加云签约解约逻辑（异步执行、独立线程池、新建日志表json记录返回记录）
+
+2021.09.18
+1.解约接口开发完成
+2.调测5个接口
+
+
+周报：
+1.熟悉支付侧相关逻辑和开发需求(微信小程序支付接口和代扣接口需求)，并编写接口文档
+2.开发5个代扣签约接口，编写测试用例（已完成开发调测中）
+3.在解卡功能中增加异步云签约解约接口调用功能(已完成开发调测中)
+========================
+
+2021.09.22
+1.沟通接口联调问题
+2.联调前端及代扣平台的接口(50%)
+ 
+
+2021.09.23
+1.联调前端及代扣平台的接口(80%)
+-配置内网环境，联通网络
+-代扣通过wxtoken回调获取用户信息接口不通处理
+-代码存储token字段不够长
+
+2021.09.24
+1.联调前端及代扣平台的接口(已完成，代码已部署到公测环境进行测试)
+2.测试项目打包在tomcat8和jdk1.8的版本运行情况(由于阿里一键登录依赖jar包最低版本是1.8的)
+
+==================
+
+2021.09.26
+todo:
+1.txz文档配置 √
+2.maven build标签学习 √
+3.多线程主动模式
+
+
+
+2021.09.27
+1.备忘录模式(主动模式，多线异步处理没有返回值的逻辑)
+2.多数上下文context对象都是使用Threadlocal实现的
+3.处理代扣接口调试出现的问题
+4.阿里意见登录改用旧模式jar包(新版jar包编译版本过高)
+
+
+2021.09.28
+1.熟悉标卡样式开发的具体业务需求
+2.开发获取配置校园卡样式接口(5%)
+
+2021.09.29
+1.开发获取配置校园卡样式接口(50%)
+2.并发文档
+3.开启商场
+
+2021.09.30
+1.开发获取配置校园卡样式接口(已完成)
+宿主系统：完美校园后台是标卡后台的宿主系统(调用者)
+可信系统：完美校园后台是标卡后台的可信系统
+
+
+1.处理代扣接口调试出现的问题
+2.开发获取标卡平台校园卡样式接口(已完成，待测)
+3.与APP端调测手机号一键登录功能(30%)
+
+========================
+2021.10.08
+1.与APP端调测手机号一键登录功能(80%)
+---
+forkjoin了解
+forkjoin是一个多线程拆分计算后汇总结果的并发对象
+-需要一个对象继承RecursiveTask<T>重写compute方法，判断是否需要将多个任务进行下分，并返回子任务计算结果
+RecursiveTask.fork()===>任务下分
+RecursiveTask.join()===>阻塞并等待获取子任务计算结果
+invokeAll(task1, task2...)===>当前线程来执行task1，其他任务下分
+---
+FutureTask task = (new ForkJoinPool()).submit(new MyRecursiveTask(0, 1000))
+task.get()===>获取最终结果
+---
+搭建虚拟机环境(需要配置vm-2的IP)
+
+2021.10.09
+1.与APP端调测手机号一键登录功能(100%)
+2.熟悉完美校园绑定校园卡功能业务
+
+完美校园APP(支付宝小程序、微信小程序、Saas等) 
+一卡通平台
+支付平台
+前置多通道平台
+健康码平台
+标准校园卡平台
+============================================
+2021.10.11
+1.开发多种方式绑定校园卡卡功能(70%)
+
+黑色(-未知，安全感缺失-阴谋，非正当行为的幕布-文学作品宣扬的两极对立)===邪恶，恐怖的代名词之一
+----
+梳理文档，梳理工作需求(禅道任务)
+
+2021.10.12
+1.开发多种方式绑定校园卡卡功能并完成自测(100%,待调测)
+2.与APP端调测手机号一键登录功能
+
+
+2021.10.13
+1.与APP端调测手机号一键登录功能(90%,完成一键登录注册功能)
+
+
+2021.10.14
+1.熟悉公众号支付逻辑
+----
+1.微信支付接口是否有sessioninfo对象？(没有)
+2.新接口的type字段说明意义？(兼容不同版本能用的支付方式)
+3.新微信接口要和新支付接口参数一致？（不用，只更换最核心的支付接口）
+----
+2.开发新版公众号支付方式、下单接口(60%)
+
+2021.10.15
+1.开发新版公众号支付方式、下单接口(100%, 待调测)
+2.公测环境换jdk1.8(5%)
+
+
+
+
+============================================
+2021.10.18
+1.公测环境换jdk1.8(10%)
+2.联调校园卡样式接口(50%)
+
+2021.10.19
+1.联调校园卡样式接口(70%)
+2.公测环境换jdk1.8(10%)
+
+----------------
+-与前端联调校园卡样式接口(50%，接口已通，其他问题处理中)
+-健康码系统用户接口字段调整(已更新到公测环境）
+-公测环境换jdk1.8(10%，目前tomcat7容器中存放有多个项目，更换jdk1.8后campus后台可以正常运行，但是campusScore、supermarket等项目冲突报错，处理中)
+
+
+2021.10.20
+1.公测环境换jdk1.8(60%,已升级jdk1.8，下面升级tomcat8)
+
+
+2021.10.21
+1.公测环境换jdk1.8和tomcat8(70%,已升级jdk1.8，下面升级tomcat8)
+
+---
+1.升级容器过程总结
+2.dubbo源码开始走起
+
+------------------
+-与前端沟通联调校园卡样式接口(60%，调测中)
+-公测环境换jdk1.8(60%, 目前项目已可以在jdk1.8+tomcat7.0.54环境中运行；另外项目在jdk1.8+tomcat8.5.72环境下也可以运行，但存在jar包冲突bcprov-jdk15-1.45.jar和bcprov-jdk15on-1.60.jar)
+
+
+2021.10.22
+
+1.调测公众号新支付接口(10%，支付侧暂忙，需要等到下周处理)
+
+----------
+-Drools解析
+-dubbo流程梳理
+--------
+
+============================================
+
+2021.10.25
+1.准备标卡、健康码平台升级文件
+2.更新代扣接口支持代扣多客户(10%)
+
+
+
+2021.10.26
+1.更新代扣接口支持代扣多商家(100%，已上线公测)
+2.配合调试新公众号支付下单接口(60%)
+
+
+2021.10.27
+
+1.调测代扣接口支持代扣多商家(测试中)
+2.配合调试新公众号支付下单接口(70%)
+3.修改积分平台部分功能列表时间显示异常问题
+-------------
+-dubbo SPI机制解析完成
+
+----
++如果打开Diagram关系图(-当前类右键|=文件结构树选择类右键)
++优化Diagram关系图(-delete删除无用类|-显示你需要的类信息|-按权限显示|-增加其他类信息|-放大镜功能|-跳转源文件)
+
+
+
+2021.10.28
+1.去掉后台百度人脸SDK入口,默认选择阿里
+
+2021.10.29
+1.调测去掉后台百度人脸SDK入口,默认选择阿里(已上公测)
+
+===================================
+
+
+2021.11.01
+1.修改健康码平台全部页面中的学校查询条件为下拉选择(20%)
+
+2021.11.02
+1.修改健康码平台全部页面中的学校查询条件为下拉选择(80%)
+
+
+2021.11.03
+1.修改健康码平台全部页面中的学校查询条件为下拉选择(100%)
+2.改造下拉组件，支持隐藏数据搜索(50%)
+
+
+
+2021.11.04
+1.参加支付宝小程序需求评审
+2.改造下拉组件，支持隐藏数据搜索(100%)
+
+
+2021.11.05
+1.改造下拉组件上线公测
+2.v3框架改造spring注解(10%)
+===============================================
+2021.11.08
+1.v3框架改造spring注解(50%)
+
+------------------------------
+1.v3框架是按照jar包来源配置区分加载的(/META-INF/v3/applicationContext-*来进分类读取的)，分别创建spring容器的(web容器启动创建一个父spring容器，之后的这些模块分别创建子spring容器进行bean创建存储)，也就是一个jar包模块一个独立的容器
+2.这里的spring容器是ModuleApplicationContext继承于AbstractRefreshableConfigApplicationContext，在创建时会将父spring容器通过super(v3Context.getApplicationContext());设置到子容器中
+2.如果想跨模块进行bean注入，在v3文档中可以使用<v:v3-bean-proxy标签，将bean封装成ModuleBeanProxyFactoryBean，被注入的bean还要实现PublicBean接口才行
+3.如果要使用spring注解，应该避免xml和注解方式的混用(要么全注解，要么全xml配置)
+4.目前跨模块注解注入还有待寻找解决方案！(跨模块注入需要将bean写到/META-INF/v3-spring-plugin-*.xml中，因为这个xml中的bean会加载到父容器中，所有子容器都可以获取)
+5.V3LoaderContextHelper.injectProperty();完成跨模块bean注入
+6.全局spring加载xml：classpath*:/META-INF/v3-spring-plugin-*.xml，在ContextLoaderListener类中重写configureAndRefreshWebApplicationContext方法
+        locations.add("classpath*:/META-INF/v3-spring-plugin-*.xml");
+        wac.setConfigLocations((String[])locations.toArray(new String[0]));
+        这样在web容器启动时会把这些xml中的bean加载到spring父容器中，给其他普通bean初始化用
+7.如果要使用@Value注解需要将properties或yml配置文件写入配置文件(注意，这个配置文件需要写到applicationContext-*的配置文件中才有用)：
+    <bean id="jpushProperty" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jpush.properties"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+    这样才可以在注入的时候取到值，也可以使用@PropertySource("classpath:jpush.properties")指定一下对应文件
+8.事务注解可以正常使用
+//日志表需要指定事务管理器
+@Transactional("logDB_transactionManager")
+//非日志表可以省略
+@Transactional
+
+9.由于日志和数据表存在不同的库里，如果一个方法既有普通表，又有日志表这种情况无法处理！(V3框架问题)
+
+10.没有暂无方法对于dao、manager层使用注解注入，因为存在通用的父类层，只能通过xml指定具体的抽象bean注入。没有父类的bean完全可以使用注解注册bean
+
+11.存在父类的的bean必须使用xml指定具体的父类的注入对象，但是可以不写property标签，使用@Autowired注入成员变量
+
+
+-----------
+1.目前@Autowired、 @Qualifier、@Resource、@Compontent、@Configuration、@Bean、@Service、@Value、@Transactional可以正常使用
+2.spring中的classpath:指的是WEB-INF/classes/这个目录
+====================================================
+目前@Autowired、 @Qualifier、@Resource、@Compontent、@Configuration、@Bean、@Service、@Value、@Transactional可以正常使用
+1.可以一定层度上减少xml配置文件的增加，但是没法完全不用xml
+2.存在父类的的bean必须使用xml指定具体的父类的注入对象，但是可以不写property标签，使用注解注入成员变量(注意，跨模块的bean必须写xml)
+3.没有父类的bean，完全可以不写xml，全使用注解注入
+4.由于V3框架对全部的bean进了模块分类加载，所以创建了多个IOC容器，bean不能跨容器进行注入
+5.如果想跨模块注入bean，被注入的bean需要使用xml定义，而且必须要写入/META-INF/v3-spring-plugin-*.xml的bean配置文件中
+6.@Value注解需要将配置文件写到applicationContext-*的配置文件中才有效
+7.由于存在多个数据源事务管理对象，所以事务注解只会对一个方法中的某一类数据源对象生效
+
+2021.11.09
+1.v3框架改造spring注解(80%)
+
+2021.11.10
+1.处理支付宝小程序解绑校园卡时的提示信息不更改问题
+2.v3框架改造spring注解文档编写
+
+2021.11.11
+1.支付宝小程序接口开发(30%)
+
+2021.11.12
+1.支付宝小程序接口开发(100%,待联调)
+====================================
+
+2021.11.15
+1.联调支付宝小程序接口(已上公测，测试中)
+
+
+V3框架启动出现Resource重复加载的异常问题解决方法：1.检查相关xml配置文件是否有问题。2.是关掉其他正在运行的项目，只启动v3项目(原因未知，此状况下不会加载一些资源的afterLoaderV3Context初始化方法)
+
+
+2021.11.16
+1.联调支付宝小程序接口(已上公测，测试中)
+2.排查系统问题
+3.健康码平台编辑页面改造(5%)
+
+                          
+2021.11.17
+1.健康码平台编辑页面改造(50%)
+2.处理标卡样式接口兼容性问题(100%)
+
+2021.11.18
+1.健康码平台编辑页面改造(100%)
+
+
+2021.11.19
+1.参加健康码系统新需求会议
+2.开发黑白名单批量关联功能(50%)
+
+
+
+ALTER TABLE `t_white_list_group` 
+ADD COLUMN `dept_switch` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '0' COMMENT '是否关联部门' AFTER `thrill_date`,
+ADD COLUMN `dept_ids` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '关联部门id' AFTER `dept_switch`,
+ADD COLUMN `dept_names` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci COMMENT '关联部门名称' AFTER `dept_ids`;
+
+CREATE TABLE `t_gate_info_group` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `customer_id` bigint(20) NOT NULL COMMENT '学校id',
+  `group_title` varchar(255) DEFAULT NULL COMMENT '分组标题',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `delete_flag` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1删除 0未删除',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `creator` varchar(800) DEFAULT NULL COMMENT '创建人',
+  `update_time` datetime DEFAULT NULL COMMENT '修改时间',
+  `modifier` varchar(800) DEFAULT NULL COMMENT '修改人',
+  `del_time` datetime DEFAULT NULL COMMENT '删除时间',
+  `deleter` varchar(800) DEFAULT NULL COMMENT '删除人',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE `t_gate_info` 
+ADD COLUMN `gate_group_id` bigint(20) DEFAULT NULL COMMENT '所属建筑分组id(t_gate_info_group.id)',
+ADD INDEX `idx_gate_group_id`(`gate_group_id`) USING BTREE;
+
+ALTER TABLE `t_visitor` 
+ADD COLUMN `gate_group_id` bigint(20) DEFAULT NULL COMMENT '所属建筑分组id(t_gate_info_group.id)' ;
+
+
+INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `del_flag`) VALUES (10339, 10001, '建筑分组管理', 'sys/gateInfoGroup.html', 'sys:gateInfoGroup:list,sys:gateInfoGroup:info', 1, 'fa fa-align-right', 0, 0);
+INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `del_flag`) VALUES (10340, 10339, '新增', NULL, 'sys:gateInfoGroup:save', 2, NULL, 0, 0);
+INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `del_flag`) VALUES (10341, 10339, '编辑', NULL, 'sys:gateInfoGroup:update', 2, NULL, 0, 0);
+INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`, `del_flag`) VALUES (10342, 10339, '删除', NULL, 'sys:gateInfoGroup:delete', 2, NULL, 0, 0);
+
+
+========================================
+2021.11.22
+1.开发黑白名单批量关联功能(80%)
+2.开始开发建筑分组管理功能(5%)
+
+2021.11.23
+1.开发建筑分组管理功能(60%)
+2.处理绑卡验证手机号问题(明日)
+
+
+
+2021.11.24
+1.开发建筑分组管理功能(100%)
+2.处理绑卡验证手机号问题(处理中)
+
+
+
+
+2021.11.25
+1.处理绑卡验证手机号问题(公测中)
+2.辅导员管理优化excel导入逻辑(60%)
+
+
+
+2021.11.26
+1辅导员管理优化excel导入逻辑(100%)
+
+
+客户端点击一键登录，会通过阿里云接口把sim卡的掩码发送给运营商，运营商会返回一个token给客户端
+
+客户端拿到token调用完校后台登录接口，接口会拿token再通过阿里云接口去运营商换取实际的手机号，后台拿到手机号后执行登录逻辑
+
+这是短信验证码的一种升级方案，优点是更方便、更安全
+
+
+================================
+2021.11.29
+1.测试处理健康码需求(50%)
+
+
+
+
+- v3如何加装自定义标签解析器的
+- 跨模块bean使用v3-bean-proxy标签进行bean创建,具体而言是会使用ModuleBeanProxyDefinitionParser解析器从其他模块获取到bean实例，然后把实例放入创建的beanDefintion中 
+  <v:v3-bean-proxy 
+		alias="userService"  --->bean在当前模块的id名称
+		bean-id="userService"  --->bean在所属模块的id
+		module-id="v3-security-app"/>  --->bean所属模块id
+		
+
+
+2021.11.30
+1.健康码需求自测，上线公测(100%)
+2.转正ppt
+
+
+
+2021.12.01
+1.完成健康码平台-辅导员用户名批量增加前置功能（60%）
+
+----
+前置多通道服务是一个维护各学校公网地址的网关角色，他打通了完校和各客户之间的网络通信，可以让彼此之间进行数据传输。
+
+
+
+2021.12.02
+1.处理健康码公共js因问题
+2.完成健康码平台相关功能优化(辅导员账号批量增加前置,学校列表查询优化等)
+
+
+2021.12.03
+1.协助处理支付宝小程序代扣签约问题
+2.健康码组件优化及完成升级打包
+3.了解华为云短信服务和完校短信服务状况
+
+=======================================
+
+
+2021.12.06
+1.完成华为云短信功能集成(待测试)
+2.健康码平台需求功能修改(30%)
+
+
+
+2021.12.07
+1.转正答辩
+2.健康码平台需求功能修改(100%)
+
+ALTER TABLE `sms_code_` 
+MODIFY COLUMN `TEMPLATE_ID_` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '阿里大鱼模板id' ,
+ADD COLUMN `TEMPLATE_ID_JSON_` varchar(500) COMMENT '其他短信模板id(key要和providerName一致)' ;
+
+ALTER TABLE `sms_info_` 
+ADD COLUMN `PROVIDER_` varchar(50) DEFAULT 'aliDayu' COMMENT '短信服务主体' ,
+ADD COLUMN `TEMPLATE_ID_` varchar(50) COMMENT '短信模板id' ;
+
+ALTER TABLE `vas_client_` 
+ADD COLUMN `TEMPLATE_IDS_` varchar(255) COMMENT '指定短信模板使用对应短信服务商,未指定则使用默认服务商' ;
+
+-- 下面的sql可以不用改
+ALTER TABLE `sms_info_` 
+MODIFY COLUMN `RECEIVE_CONTENT_` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+ALTER TABLE `sms_batch_info_` 
+MODIFY COLUMN `RESPONSE_` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+
+--更新华为云模板id
+UPDATE `sms_code_` SET  `TEMPLATE_ID_JSON_` = '{huaweiSms:"695323dca855448baa76e3d2aecc923e", aliDayu:"SMS_146806193"}' WHERE `id_` = 3 and `TEMPLATE_ID_` = 'SMS_146806193';
+UPDATE `sms_code_` SET  `TEMPLATE_ID_JSON_` = '{huaweiSms:"1810d45a64fd4c4f99533dad598cdf88", aliDayu:"SMS_146801271"}' WHERE `id_` = 4 and `TEMPLATE_ID_` = 'SMS_146801271';
+UPDATE `sms_code_` SET  `TEMPLATE_ID_JSON_` = '{huaweiSms:"851686f40bdd44d4becefd6dca32f41b", aliDayu:"SMS_146801268"}' WHERE `id_` = 5 and `TEMPLATE_ID_` = 'SMS_146801268';
+UPDATE `sms_code_` SET  `TEMPLATE_ID_JSON_` = '{huaweiSms:"653f272be125446bae79211e3e0d0891", aliDayu:"SMS_204291554"}' WHERE `id_` = 6 and `TEMPLATE_ID_` = 'SMS_204291554';
+
+-------
+华为云短信问题：
+1.模板入参和阿里大鱼不一样，大鱼的是json、华为的是数组，没有办法做到完美兼容
+2.需要提供企业账户以及短信签名、模板、配置参数等信息
+3.模板id需要进行统一兼容
+
+        String appKey = "c8RWg3ggEcyd4D3p94bf3Y7x1Ile"; //APP_Key
+        String appSecret = "q4Ii87BhST9vcs8wvrzN80SfD7Al"; //APP_Secret
+        String sender = "csms12345678"; //国内短信签名通道号或国际/港澳台短信通道号
+        String templateId = "8ff55eac1d0b478ab3c06c3c6a492300"; //模板ID
+
+        //条件必填,国内短信关注,当templateId指定的模板类型为通用模板时生效且必填,必须是已审核通过的,与模板类型一致的签名名称
+        //国际/港澳台短信不用关注该参数
+        String signature = "华为云短信测试"; //签名名称
+
+        //必填,全局号码格式(包含国家码),示例:+8615123456789,多个号码之间用英文逗号分隔
+        String receiver = "+86151****6789,+86152****7890"; //短信接收人号码
+
+        //模板内容
+
+
+  - 开发功能应该尽量遵循，改代码，不改数据存储结构(可以新增字段)      
+
+2021.12.08
+1.整合华为云短信服务到短信平台(40%)
+
+
+
+2021.12.09
+1.整合华为云短信服务到短信平台(80%)
+
+
+了解大文件上传
+
+
+
+2021.12.10
+1.处理短信平台兼容问题(100%)
+2.华为云短信服务已经调通，后续需要和阿里大鱼的模板id进行统一
+
+================================
+
+2021.12.13
+1.完成短信平台开发，处理瞬时切换短信服务，redis中短信主体还是旧模板id，导致短信不可用问题
+2.进行短信服务与完校项目联调自测
+
+
+2021.12.14
+1.完成短信平台账号自定义选型短信服务商功能
+2.完成短信服务自测(可以进行短信服务切换)
+
+
+2021.12.15
+1.编写短信平台改造文档说明
+2.熟悉B模块项目与业务体系
+
+
+2021.12.16
+1.排查极光推送服务挂了的问题(13号服务器重启，可能网络重启服务)
+2.协助测试，对健康码河工院一期功能进行测试
+
+
+
+2021.12.17
+1.熟悉功能管理微服务项目
+2.协助测试，对健康码河工院一期功能进行测试，处理发现的问题
+
+----------------
+
+nacos是微服务中注册中心、配置中心、网关中心的集合化、独立化中间件。我们部署一个nacos服务后，可以将各个服务节点注册到nacos中，
+同时可以每个服务节点的配置文件可以动态的写入nacos中，通过设置nacos网关中心的入口，可以将各种请求路由到各个服务节点中。
+
+
+B模块内嵌到学校的公众号中，一般有两种支付方式，服务商和非服务商方式，服务商的方式需要到ewapp(完校的一个支付应用)的接口中获取到openid，走新开普账户支付，新开普再分账。
+非服务商需要学校提供他们的openid，直接走学校账户支付。
+
+=====================
+
+2021.12.20
+1.功能管理微服务熟悉业务，参与业务内容开发
+2.处理功能管理微服务打包切换配置文件问题
+3.跟进短信平台测试相关工作
+
+-- 公测已执行
+ALTER TABLE `feat_tabbar_info` 
+ADD COLUMN `native_page_params` varchar(255) COMMENT '原生页面参数' AFTER `ios_page_path`;
+
+
+
+# mybatis配置
+mybatis:
+    # 搜索指定包别名
+    typeAliasesPackage: net.newcapec.campus
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath:mapper/**/*Mapper.xml
+
+
+      datasource:
+          # 主库数据源
+          master:
+            driver-class-name: com.mysql.jdbc.Driver
+            url: jdbc:mysql://192.168.3.63:3316/mycampus?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&allowMultiQueries=true&rewriteBatchedStatements=true
+            username: root
+            password: root
+          # 从库数据源
+          slave:
+            driver-class-name: com.mysql.jdbc.Driver
+            url: jdbc:mysql://192.168.3.63:3316/newcampus-cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&allowMultiQueries=true&rewriteBatchedStatements=true
+            username: root
+            password: root
+
+# mybatis配置
+mybatis-plus:
+    # 搜索指定包别名
+    typeAliasesPackage: net.newcapec.campus
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath:mapper/**/*Mapper.xml
+
+
+2021.12.21
+1.功能管理微服务熟悉业务，参与业务内容开发
+2.协助测试，对健康码河工院一期功能进行测试(黑白名单分组列表需要增加字段，22号处理)
+3.功能管理微服务引入mybatis-plus，由于一些po中存在表中没有的字段，待处理
+
+
+
+2021.12.22
+1.功能管理微服务熟悉业务，参与业务内容开发
+2.协助测试，对健康码河工院一期功能进行测试(黑白名单分组列表需要增加字段，22号处理)
+
+
+2021.12.23
+1.开发标卡获取微信企业号的js权限，调用扫一扫用的参数
+2.熟悉开发平台项目
+
+---------------
+功能管理微服务中，只涉及动态选项卡类数据缓存的删除，缓存数据的新增在完校后台中，所以功能管理升级生产时，要注意在完校后台中redis.config.properties中增加功能管理项目的redis地址
+# FeatFeatureRedis settings
+featFeatureRedis.hostName=192.168.0.203
+featFeatureRedis.port=6579
+featFeatureRedis.timeout=3000
+featFeatureRedis.password=
+featFeatureRedis.database=7
+
+
+=====================================
+2021.12.27
+1.开发标卡、开放平台接口、对接ewpp项目的获取js api参数接口(10%)
+2.写述职ppt
+
+
+2021.12.28
+1.处理健康码项目升级问题处理
+2.参加部门述职会议
+
+可学习的地方：系统运维案例、
+
+
+
+处理健康码平台中文模板下载报错400问题：
+情况：
+个人分支可以正常下载
+opentest公测可以下载，
+但是本地的opentest和生产分支都不可以下载，
+没有日志报错，只知道返回400 bad request，
+通过debug springMVC请求源码定位到问题发生在filterChain中，将response改为了400
+进一步定位到shiro框架，发现个人分支shiro分支版本为1.3.2，公测为1.8.0
+
+
+
+http://exiaoyuan.17wanxiao.com/ecardh5/bootcallback
+
+2021.12.29
+1.解决健康码模板下载报错问题
+2.开发标卡、开放平台接口、对接ewpp项目的获取js api参数接口(60%)
+
+
+
+2021.12.30
+1.开发标卡、开放平台接口、对接ewpp项目的获取js api参数接口(80%,待调测)
+2.配合处理47中对接充值接口问题
+
+
+
+
+2021.12.31
+1.开发标卡、开放平台接口、对接ewpp项目的获取js api参数接口(100%，接口已通待测试)
+
+
+==============================
+==============================
+==============================
+==============================
+==============================
+==============================
+
+
+

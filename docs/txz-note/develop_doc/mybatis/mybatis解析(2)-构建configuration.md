@@ -1,0 +1,10 @@
+mybatis解析(2)-构建configuration
+
+#### 一、创建configuaration
+
+我们知道mybatis的核心调用对象是sqlSessionFactory，sqlSessionFactory的核心属性是configuaration对象。在mybatis启动过程中主要逻辑有两步，一步是解析mapper.xml文件将其封装成MapperStatement设置到configuaration对象中。另一步是给所有的Mapper接口创建MapperProxy代理对象，并设置到configuaration中。
+
+当sqlSessionFactory创建完成后我们要使用他创建一个sqlSession对象(创建sql执行对象executor)，之后我们使用sqlSession获取configuaration中的MapperProxy代理对象(实际上只有在执行sqlSession.getMapper(...)时才会创建MapperProxy对象；在整合到spring后则会先创建好MapperProxy存入IOC容器中供注入)，当调用Mapper接口方法时，会执行MapperProxy代理对象的invoke方法，在invoke方法会使用executor去操作sql返回结果。
+
+参考：https://www.imooc.com/article/44909
+
