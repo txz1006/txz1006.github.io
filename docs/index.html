@@ -21,61 +21,61 @@
 <body>
 <div id="app"></div>
 <script>
-    var gitalkConfig = {
-      clientID: '4a657aa4ae6c0f1862a1',
-      clientSecret: '94793d5bac0c884a8798ea941f7c5bc9fb004720',
-      repo: 'fuzhengwei.github.io',
-      owner: 'fuzhengwei',
-      admin: ["fuzhengwei"],
-      distractionFreeMode: false
-    };
-    window.$docsify = {
-      name: 'TXZ1006',
-      repo: 'https://github.com/txz1006/txz1006.github.io',
-      auto2top: true,
-      coverpage: true,
-      loadSidebar: true,
-      maxLevel: 4,
-      subMaxLevel: 2,
-      search: {
-        paths: 'auto',
-        placeholder: '🔍 Type to search ',
-        noData: '😞 No Results! ',
-        depth: 6
-      },
-      pagination: {
-        previousText: 'PREVIOUS',
-        nextText: 'NEXT',
-        crossChapter: true
-      },
-      plugins: [
-        function (hook, vm) {
-          hook.doneEach(function() {
-            var label, domObj, main, divEle, gitalk;
-            label = md5(decodeURI(vm.route.path.split("/").pop()));
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
+   var gitalkConfig = {
+     clientID: '4a657aa4ae6c0f1862a1',
+     clientSecret: '94793d5bac0c884a8798ea941f7c5bc9fb004720',
+     repo: 'fuzhengwei.github.io',
+     owner: 'fuzhengwei',
+     admin: ["fuzhengwei"],
+     distractionFreeMode: false
+   };
+   window.$docsify = {
+     name: 'TXZ1006',
+     repo: 'https://github.com/txz1006/txz1006.github.io',
+     auto2top: true,
+     coverpage: true,
+     loadSidebar: true,
+     maxLevel: 4,
+     subMaxLevel: 2,
+     search: {
+       paths: 'auto',
+       placeholder: '🔍 Type to search ',
+       noData: '😞 No Results! ',
+       depth: 6
+     },
+     pagination: {
+       previousText: 'PREVIOUS',
+       nextText: 'NEXT',
+       crossChapter: true
+     },
+     plugins: [
+       function (hook, vm) {
+         hook.doneEach(function() {
+           var label, domObj, main, divEle, gitalk;
+           label = md5(decodeURI(vm.route.path.split("/").pop()));
+           domObj = Docsify.dom;
+           main = domObj.getNode("#main");
 
-            Array.apply(
-              null,
-              document.querySelectorAll("div.gitalk-container")
-            ).forEach(function(ele) {
-              ele.remove();
-            });
-      
-            divEle = domObj.create("div");
-            divEle.id = "gitalk-container-" + label;
-            divEle.className = "gitalk-container";
-            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
-            domObj.appendTo(domObj.find(".content"), divEle);
-            gitalk = new Gitalk(
-              Object.assign(gitalkConfig, { id: !label ? "home" : label })
-            );
-            gitalk.render("gitalk-container-" + label);
-          });
-        }
-      ]
-    }                                 
+           Array.apply(
+             null,
+             document.querySelectorAll("div.gitalk-container")
+           ).forEach(function(ele) {
+             ele.remove();
+           });
+     
+           divEle = domObj.create("div");
+           divEle.id = "gitalk-container-" + label;
+           divEle.className = "gitalk-container";
+           divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+           domObj.appendTo(domObj.find(".content"), divEle);
+           gitalk = new Gitalk(
+             Object.assign(gitalkConfig, { id: !label ? "home" : label })
+           );
+           gitalk.render("gitalk-container-" + label);
+         });
+       }
+     ]
+   }                                 
   </script>
 
 <script src="/assets/js/md5.js"></script>
