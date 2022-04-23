@@ -3,7 +3,7 @@
   - [mysql-1(关于null的坑)](txz-note/develop_doc/mysql/mysql-1(关于null的坑).md)
   - [mysql-10(索引与查询原理)](txz-note/develop_doc/mysql/mysql-10(索引与查询原理).md)
   - [mysql-11(索引与查询原理2)](txz-note/develop_doc/mysql/mysql-11(索引与查询原理2).md)
-  - [mysql-12(索引设计和执行计划 )](txz-note/develop_doc/mysql/mysql-12(索引设计和执行计划 ).md)
+  - [mysql-12(索引设计和执行计划)](txz-note/develop_doc/mysql/mysql-12(索引设计和执行计划).md)
   - [mysql-13(表关联原理技巧)](txz-note/develop_doc/mysql/mysql-13(表关联原理技巧).md)
   - [mysql-14(执行计划解析)](txz-note/develop_doc/mysql/mysql-14(执行计划解析).md)
   - [mysql-15(搭建主从同步mysq)](txz-note/develop_doc/mysql/mysql-15(搭建主从同步mysq).md)

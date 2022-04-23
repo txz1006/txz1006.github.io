@@ -1,7 +1,6 @@
 - [返回上一级 [develop_doc]](txz-note/develop_doc/)
 - [dubbo源码系列](txz-note/develop_doc/dubbo源码系列/)
   - [dubbo解析-1(SPI解析1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-1(SPI解析1).md)
-  - [dubbo解析-10(接口调用1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-10(接口调用1).md)
   - [dubbo解析-2(SPI解析2)](txz-note/develop_doc/dubbo源码系列/dubbo解析-2(SPI解析2).md)
   - [dubbo解析-3(SPI解析3)](txz-note/develop_doc/dubbo源码系列/dubbo解析-3(SPI解析3).md)
   - [dubbo解析-4(接口暴露解析1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-4(接口暴露解析1).md)
@@ -10,3 +9,4 @@
   - [dubbo解析-7(接口暴露解析4)](txz-note/develop_doc/dubbo源码系列/dubbo解析-7(接口暴露解析4).md)
   - [dubbo解析-8(接口暴露解析5)](txz-note/develop_doc/dubbo源码系列/dubbo解析-8(接口暴露解析5).md)
   - [dubbo解析-9(接口暴露解析6)](txz-note/develop_doc/dubbo源码系列/dubbo解析-9(接口暴露解析6).md)
+  - [dubbo解析-10(接口调用1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-10(接口调用1).md)
