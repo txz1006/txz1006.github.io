@@ -7,6 +7,7 @@
   - [redis-3(持久化与集群部署)](txz-note/develop_doc/中间件(容器)/redis-3(持久化与集群部署).md)
   - [redis-5(基础类型应用)](txz-note/develop_doc/中间件(容器)/redis-5(基础类型应用).md)
   - [redis-6(秒杀架构设计)](txz-note/develop_doc/中间件(容器)/redis-6(秒杀架构设计).md)
+  - [redis-7(哨兵j集群）](txz-note/develop_doc/中间件(容器)/redis-7(哨兵j集群）.md)
   - [RocketMQ-1(基础介绍)](txz-note/develop_doc/中间件(容器)/RocketMQ-1(基础介绍).md)
   - [RocketMQ-2(架构简析)](txz-note/develop_doc/中间件(容器)/RocketMQ-2(架构简析).md)
   - [Tomcat源码解析(01)-tomcat架构总览](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(01)-tomcat架构总览.md)

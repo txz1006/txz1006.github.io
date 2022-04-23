@@ -1,4 +1,4 @@
-ServerSocketChannel 简析| 并发编程网
+ServerSocketChannel简析
 
 [原文链接](http://tutorials.jenkov.com/java-nio/server-socket-channel.html "原文链接")     **作者：**Jakob Jenkov     **译者：**郑玉婷      **校对：**丁一
 

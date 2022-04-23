@@ -1,9 +1,11 @@
 - [返回首页](/)
+
 - [txz-note](txz-note/)
   - [develop_doc](txz-note/develop_doc/)
     - [docker相关](txz-note/develop_doc/docker相关/)
       - [docker安装zk和kafka](txz-note/develop_doc/docker相关/docker安装zk和kafka.md)
       - [docker容器-安装配置](txz-note/develop_doc/docker相关/docker容器-安装配置.md)
+      
     - [dubbo源码系列](txz-note/develop_doc/dubbo源码系列/)
       - [dubbo解析-1(SPI解析1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-1(SPI解析1).md)
       - [dubbo解析-10(接口调用1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-10(接口调用1).md)
@@ -15,8 +17,11 @@
       - [dubbo解析-7(接口暴露解析4)](txz-note/develop_doc/dubbo源码系列/dubbo解析-7(接口暴露解析4).md)
       - [dubbo解析-8(接口暴露解析5)](txz-note/develop_doc/dubbo源码系列/dubbo解析-8(接口暴露解析5).md)
       - [dubbo解析-9(接口暴露解析6)](txz-note/develop_doc/dubbo源码系列/dubbo解析-9(接口暴露解析6).md)
+      
     - [git的工作原理图](txz-note/develop_doc/git的工作原理图.md)
+    
     - [JAVA中的NIO (New IO)](txz-note/develop_doc/JAVA中的NIO (New IO).md)
+    
     - [java源码](txz-note/develop_doc/java源码/)
       - [java基础](txz-note/develop_doc/java源码/java基础.md)
       - [java并发1-基础知识](txz-note/develop_doc/java源码/java并发1-基础知识.md)
@@ -26,6 +31,7 @@
       - [java集合](txz-note/develop_doc/java源码/java集合.md)
       - [string特性总结](txz-note/develop_doc/java源码/string特性总结.md)
       - [多线程AQS简析](txz-note/develop_doc/java源码/多线程AQS简析.md)
+      
     - [jvm](txz-note/develop_doc/jvm/)
       - [JVM-1(基础)](txz-note/develop_doc/jvm/JVM-1(基础).md)
       - [JVM-2(分代模型和内存设置)](txz-note/develop_doc/jvm/JVM-2(分代模型和内存设置).md)
@@ -35,11 +41,13 @@
       - [JVM-6(阶段复习)](txz-note/develop_doc/jvm/JVM-6(阶段复习).md)
       - [JVM-7(模拟实机GC)](txz-note/develop_doc/jvm/JVM-7(模拟实机GC).md)
       - [JVM-8(实例实践)](txz-note/develop_doc/jvm/JVM-8(实例实践).md)
+      
     - [mybatis](txz-note/develop_doc/mybatis/)
       - [mybatis-plus多表关联分页查询](txz-note/develop_doc/mybatis/mybatis-plus多表关联分页查询.md)
       - [mybatis解析(1)-环境搭建](txz-note/develop_doc/mybatis/mybatis解析(1)-环境搭建.md)
       - [mybatis解析(2)-构建configuration](txz-note/develop_doc/mybatis/mybatis解析(2)-构建configuration.md)
       - [mybatis解析(3)-插件使用](txz-note/develop_doc/mybatis/mybatis解析(3)-插件使用.md)
+      
     - [mysql](txz-note/develop_doc/mysql/)
       - [mysql-1(关于null的坑)](txz-note/develop_doc/mysql/mysql-1(关于null的坑).md)
       - [mysql-10(索引与查询原理)](txz-note/develop_doc/mysql/mysql-10(索引与查询原理).md)
@@ -56,15 +64,20 @@
       - [mysql-7(redo.log和undo.log)](txz-note/develop_doc/mysql/mysql-7(redo.log和undo.log).md)
       - [mysql-8(事务级别和MVCC)](txz-note/develop_doc/mysql/mysql-8(事务级别和MVCC).md)
       - [mysql-9(表锁与行锁)](txz-note/develop_doc/mysql/mysql-9(表锁与行锁).md)
+      
     - [mysql开启慢SQL并分析原因](txz-note/develop_doc/mysql开启慢SQL并分析原因.md)
+    
     - [netty解析](txz-note/develop_doc/netty解析/)
       - [netty基础1](txz-note/develop_doc/netty解析/netty基础1.md)
       - [netty基础2](txz-note/develop_doc/netty解析/netty基础2.md)
       - [netty基础3](txz-note/develop_doc/netty解析/netty基础3.md)
-    - [Redis入门到精通（二十）——哨兵概念、配置哨兵、哨兵工作原理（监控阶段、通知阶段、故障转移阶段）](txz-note/develop_doc/Redis入门到精通（二十）——哨兵概念、配置哨兵、哨兵工作原理（监控阶段、通知阶段、故障转移阶段）.md)
+      
     - [SAX解析XML文件](txz-note/develop_doc/SAX解析XML文件.md)
-    - [ServerSocketChannel 简析_ 并发编程网](txz-note/develop_doc/ServerSocketChannel 简析_ 并发编程网.md)
+    
+    - [ServerSocketChannel简析](txz-note/develop_doc/ServerSocketChannel简析.md)
+    
     - [Shell脚本](txz-note/develop_doc/Shell脚本.md)
+    
     - [srping相关](txz-note/develop_doc/srping相关/)
       - [FactoryBean了解](txz-note/develop_doc/srping相关/FactoryBean了解.md)
       - [springCloud-1(五大组件入门)](txz-note/develop_doc/srping相关/springCloud-1(五大组件入门).md)
@@ -94,6 +107,7 @@
       - [spring事务及传播性总结](txz-note/develop_doc/srping相关/spring事务及传播性总结.md)
       - [spring是如何处理循环依赖？](txz-note/develop_doc/srping相关/spring是如何处理循环依赖？.md)
       - [微服务-1](txz-note/develop_doc/srping相关/微服务-1.md)
+      
     - [中间件(容器)](txz-note/develop_doc/中间件(容器)/)
       - [MQ中间件-1(认识MQ)_](txz-note/develop_doc/中间件(容器)/MQ中间件-1(认识MQ)_.md)
       - [nginx应用-1](txz-note/develop_doc/中间件(容器)/nginx应用-1.md)
@@ -102,17 +116,21 @@
       - [redis-3(持久化与集群部署)](txz-note/develop_doc/中间件(容器)/redis-3(持久化与集群部署).md)
       - [redis-5(基础类型应用)](txz-note/develop_doc/中间件(容器)/redis-5(基础类型应用).md)
       - [redis-6(秒杀架构设计)](txz-note/develop_doc/中间件(容器)/redis-6(秒杀架构设计).md)
+      - [redis-7(哨兵j集群）](txz-note/develop_doc/中间件(容器)/redis-7(哨兵j集群）.md)
       - [RocketMQ-1(基础介绍)](txz-note/develop_doc/中间件(容器)/RocketMQ-1(基础介绍).md)
       - [RocketMQ-2(架构简析)](txz-note/develop_doc/中间件(容器)/RocketMQ-2(架构简析).md)
       - [Tomcat源码解析(01)-tomcat架构总览](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(01)-tomcat架构总览.md)
       - [Tomcat源码解析(02)](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(02).md)
       - [消息中台](txz-note/develop_doc/中间件(容器)/消息中台.md)
       - [消息队列-1](txz-note/develop_doc/中间件(容器)/消息队列-1.md)
+      
     - [其他](txz-note/develop_doc/其他/)
       - [代码技巧](txz-note/develop_doc/其他/代码技巧.md)
       - [如何顺利完成转正答辩？](txz-note/develop_doc/其他/如何顺利完成转正答辩？.md)
+      
     - [分布式](txz-note/develop_doc/分布式/)
       - [zookeeper入门](txz-note/develop_doc/分布式/zookeeper入门.md)
+      
     - [前端技术](txz-note/develop_doc/前端技术/)
       - [class中原型链的指向关系](txz-note/develop_doc/前端技术/class中原型链的指向关系.md)
       - [es6学习(1)-解构赋值](txz-note/develop_doc/前端技术/es6学习(1)-解构赋值.md)
@@ -132,8 +150,10 @@
       - [vue中proxy代理请求路径问题](txz-note/develop_doc/前端技术/vue中proxy代理请求路径问题.md)
       - [vue整合vue-video-player组件](txz-note/develop_doc/前端技术/vue整合vue-video-player组件.md)
       - [vue项目整合vue-full-calendar日程组件](txz-note/develop_doc/前端技术/vue项目整合vue-full-calendar日程组件.md)
+      
     - [大数据](txz-note/develop_doc/大数据/)
       - [Strom流时计算_](txz-note/develop_doc/大数据/Strom流时计算_.md)
+      
     - [实践经验](txz-note/develop_doc/实践经验/)
       - [git命令](txz-note/develop_doc/实践经验/git命令.md)
       - [IO多路复用的三种机制Select，Poll，Epoll](txz-note/develop_doc/实践经验/IO多路复用的三种机制Select，Poll，Epoll.md)
@@ -150,10 +170,14 @@
       - [系统设计原则(传统项目)](txz-note/develop_doc/实践经验/系统设计原则(传统项目).md)
       - [需求功能分析设计原则](txz-note/develop_doc/实践经验/需求功能分析设计原则.md)
       - [面试官：只用Dubbo不行吗？为啥还要有Zookeeper_](txz-note/develop_doc/实践经验/面试官：只用Dubbo不行吗？为啥还要有Zookeeper_.md)
+      
     - [获取动态生成的class代码](txz-note/develop_doc/获取动态生成的class代码.md)
+    
     - [计算机基础原理](txz-note/develop_doc/计算机基础原理/)
       - [IO模型简析](txz-note/develop_doc/计算机基础原理/IO模型简析.md)
+      
     - [设计模式](txz-note/develop_doc/设计模式.md)
+    
     - [问题解决](txz-note/develop_doc/问题解决/)
       - [B模块生产环境出现Connection timed out问题](txz-note/develop_doc/问题解决/B模块生产环境出现Connection timed out问题.md)
       - [iframe跨域嵌入白屏问题](txz-note/develop_doc/问题解决/iframe跨域嵌入白屏问题.md)
@@ -161,33 +185,5 @@
       - [开放平台数据库性能抖动问题分析](txz-note/develop_doc/问题解决/开放平台数据库性能抖动问题分析.md)
       - [日志服务器CPU100%问题排查](txz-note/develop_doc/问题解决/日志服务器CPU100%问题排查.md)
       - [虚拟机使用问题](txz-note/develop_doc/问题解决/虚拟机使用问题.md)
-    - [面试](txz-note/develop_doc/面试/)
-      - [dubbo面试](txz-note/develop_doc/面试/dubbo面试.md)
-      - [hystrix面试相关](txz-note/develop_doc/面试/hystrix面试相关.md)
-      - [MQ中间件-1(认识MQ)](txz-note/develop_doc/面试/MQ中间件-1(认识MQ).md)
-      - [Netty面试相关](txz-note/develop_doc/面试/Netty面试相关.md)
-      - [Redis面试问题](txz-note/develop_doc/面试/Redis面试问题.md)
-      - [___ ElasticSearch面试问题](txz-note/develop_doc/面试/___ ElasticSearch面试问题.md)
-      - [数据库相关](txz-note/develop_doc/面试/数据库相关.md)
-      - [面试一](txz-note/develop_doc/面试/面试一.md)
-      - [高可用性部署的几种情况](txz-note/develop_doc/面试/高可用性部署的几种情况.md)
-  - [pdf文档](txz-note/pdf文档/)
-  - [wm-dev](txz-note/wm-dev/)
-    - [B模块项目](txz-note/wm-dev/B模块项目.md)
-    - [tomcat打包运行](txz-note/wm-dev/tomcat打包运行.md)
-    - [V3框架支持spring注解的使用](txz-note/wm-dev/V3框架支持spring注解的使用.md)
-    - [中文Url返回400问题处理](txz-note/wm-dev/中文Url返回400问题处理.md)
-    - [兼容多数据库](txz-note/wm-dev/兼容多数据库.md)
-    - [前置通道打包升级](txz-note/wm-dev/前置通道打包升级.md)
-    - [处理浏览器请求编码模块不完整问题](txz-note/wm-dev/处理浏览器请求编码模块不完整问题.md)
-    - [学会](txz-note/wm-dev/学会/)
-      - [1.线程池](txz-note/wm-dev/学会/1.线程池.md)
-      - [2.线程池应用](txz-note/wm-dev/学会/2.线程池应用.md)
-    - [支付逻辑210913](txz-note/wm-dev/支付逻辑210913.md)
-    - [模块解析](txz-note/wm-dev/模块解析.md)
-    - [登录注册逻辑](txz-note/wm-dev/登录注册逻辑.md)
-    - [短信平台多服务商改造](txz-note/wm-dev/短信平台多服务商改造.md)
-    - [短信平台配置使用](txz-note/wm-dev/短信平台配置使用.md)
-    - [绑卡逻辑](txz-note/wm-dev/绑卡逻辑.md)
-  - [z-其他资源](txz-note/z-其他资源/)
-  - [_resources](txz-note/_resources/)
+      
+      

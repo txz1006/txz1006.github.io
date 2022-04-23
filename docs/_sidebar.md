@@ -1,4 +1,5 @@
 - [txz-note](txz-note/)
+  
   - [develop_doc](txz-note/develop_doc/)
     - [docker相关](txz-note/develop_doc/docker相关/)
       - [docker安装zk和kafka](txz-note/develop_doc/docker相关/docker安装zk和kafka.md)
@@ -70,11 +71,9 @@
       - [netty基础2](txz-note/develop_doc/netty解析/netty基础2.md)
       - [netty基础3](txz-note/develop_doc/netty解析/netty基础3.md)
       
-    - [Redis入门到精通（二十）——哨兵概念、配置哨兵、哨兵工作原理（监控阶段、通知阶段、故障转移阶段）](txz-note/develop_doc/Redis入门到精通（二十）——哨兵概念、配置哨兵、哨兵工作原理（监控阶段、通知阶段、故障转移阶段）.md)
-    
     - [SAX解析XML文件](txz-note/develop_doc/SAX解析XML文件.md)
     
-    - [ServerSocketChannel 简析_ 并发编程网](txz-note/develop_doc/ServerSocketChannel 简析_ 并发编程网.md)
+    - [ServerSocketChannel简析](txz-note/develop_doc/ServerSocketChannel简析.md)
     
     - [Shell脚本](txz-note/develop_doc/Shell脚本.md)
     
@@ -116,6 +115,7 @@
       - [redis-3(持久化与集群部署)](txz-note/develop_doc/中间件(容器)/redis-3(持久化与集群部署).md)
       - [redis-5(基础类型应用)](txz-note/develop_doc/中间件(容器)/redis-5(基础类型应用).md)
       - [redis-6(秒杀架构设计)](txz-note/develop_doc/中间件(容器)/redis-6(秒杀架构设计).md)
+      - [redis-7(哨兵j集群）](txz-note/develop_doc/中间件(容器)/redis-7(哨兵j集群).md)
       - [RocketMQ-1(基础介绍)](txz-note/develop_doc/中间件(容器)/RocketMQ-1(基础介绍).md)
       - [RocketMQ-2(架构简析)](txz-note/develop_doc/中间件(容器)/RocketMQ-2(架构简析).md)
       - [Tomcat源码解析(01)-tomcat架构总览](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(01)-tomcat架构总览.md)
