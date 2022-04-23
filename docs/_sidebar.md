@@ -15,11 +15,8 @@
       - [dubbo解析-7(接口暴露解析4)](txz-note/develop_doc/dubbo源码系列/dubbo解析-7(接口暴露解析4).md)
       - [dubbo解析-8(接口暴露解析5)](txz-note/develop_doc/dubbo源码系列/dubbo解析-8(接口暴露解析5).md)
       - [dubbo解析-9(接口暴露解析6)](txz-note/develop_doc/dubbo源码系列/dubbo解析-9(接口暴露解析6).md)
-      - [dubbo解析-10(接口调用1)](txz-note/develop_doc/dubbo源码系列/dubbo解析-10(接口调用1).md)
       
     - [git的工作原理图](txz-note/develop_doc/git的工作原理图.md)
-    
-    - [JAVA中的NIO(New IO)](txz-note/develop_doc/JAVA中的NIO(New IO).md)
     
     - [java源码](txz-note/develop_doc/java源码/)
       - [java基础](txz-note/develop_doc/java源码/java基础.md)
