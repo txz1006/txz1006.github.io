@@ -110,13 +110,17 @@ PS：硬盘制作商会采用10进制来计算硬盘的大小，如一个500G的
 
 1.通过top命令获取cpu=100%的进程pid
 
-2.通过jstack \[pid\] >ThreadInfo.txt导出进程的线程状况
+2.通过top -Hp [pid]获取进程中占内存最高的线程pid
+
+3.将上面的线程pid转为16进制，例如printf "%x\n" 16756，得到的16进制是0x4174
+
+4.通过jstack \[pid\] >ThreadInfo.txt导出进程的线程状况，或者筛选执行jstack [进程pid] | grep '0x4174' -C10 --color
 
 ![image-20210806161952521](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora/20210806161952.png)
 
-3.通过ps -mp \[pid\] -o THREAD,tid,time等命令查询哪一个线程cpu占用高
+5.通过ps -mp \[pid\] -o THREAD,tid,time等命令查询哪一个线程cpu占用高
 
-4.将线程的TID转换为16进制后，和ThreadInfo.txt中的NID进行对比，找到线程栈中的代码位置
+6.将线程的TID转换为16进制后，和ThreadInfo.txt中的NID进行对比，找到线程栈中的代码位置
 
 ============
 
