@@ -39,6 +39,7 @@ mysql中对于数据行的加锁过程大概是这样的 ：当一个事务要�
 
   ```sql
   -- 在查询语句后加独占锁（for update）
+  -- for update会锁表，慎用
   select * from table for update
   ```
 
