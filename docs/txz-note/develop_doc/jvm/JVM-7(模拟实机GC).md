@@ -272,6 +272,10 @@ Young GC触发的频率、每次Young GC后存活对象的大小、每次Young G
 
 使用jmap输出快照文件：jmap -dump:live,format=b,file=dump.hprof [PID]，输出后我们会得到一个dump.hprof文件
 
+```
+jmap -dump:format=b,live,file=/server/dump.hprof 17719
+```
+
 ![image-20210222165205405](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora/20210222165205.png)
 
 之后我们就可以使用jhat命令来分析这个快照文件了，命令是jhat dump.hprof，这样jhat命令会开启内置服务器并启动一个7000端口的项目，之后我们就可以通过访问本地7000端口来具体分析这个快照文件的内容了：

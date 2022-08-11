@@ -10,6 +10,7 @@
   - [亿级流量学习_](txz-note/develop_doc/实践经验/亿级流量学习_.md)
   - [学习的方法_](txz-note/develop_doc/实践经验/学习的方法_.md)
   - [并发结构对象设计](txz-note/develop_doc/实践经验/并发结构对象设计.md)
+  - [服务配置](txz-note/develop_doc/实践经验/服务配置.md)
   - [消息队列之推还是拉，RocketMQ 和 Kafka 是如何做的？_yes-CSDN博客](txz-note/develop_doc/实践经验/消息队列之推还是拉，RocketMQ 和 Kafka 是如何做的？_yes-CSDN博客.md)
   - [百万级别数据Excel导出优化](txz-note/develop_doc/实践经验/百万级别数据Excel导出优化.md)
   - [系统设计原则(传统项目)](txz-note/develop_doc/实践经验/系统设计原则(传统项目).md)

@@ -372,7 +372,7 @@ static class ThreadLocalMap {
 
 **为什么要使用弱引用？直接用强引用不行吗？**
 
-如果直接使用强引用，那么ThreadLocal实例和entry对象的val值对象都不会被回收，可能都会造成内存泄漏。
+如果直接使用强引用，那么ThreadLocal实例和entry对象的val值对象都不会被回收，可能都会造成内存泄漏。（一般ThreadLocal实例会被定义为static静态对接，所以引用不会丢失）
 
 **如何处理内存泄漏问题呢？**
 

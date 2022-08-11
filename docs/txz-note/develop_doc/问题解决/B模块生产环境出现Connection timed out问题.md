@@ -2,9 +2,9 @@
 
 在日志文件中频繁出现数据库连接Connection timed out的异常报错(一秒一次)
 
-![image.png](assets/image-20220415145818-abi4mbk.png)
+![image-20220811161445879](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111614919.png)
 
-![image.png](assets/image-20220415145808-5aei5fx.png)
+![image-20220811161456626](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111614670.png)
 
 #### 排查思路
 
@@ -15,11 +15,11 @@
 
 通过show status like '%thread%'命令来观察，数据库当前的连接数是否存在异常。
 
-![image.png](assets/image-20220415151642-fumsmq9.png)
+![image-20220811161508524](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111615553.png)
 
 通过show variables like '%timeout%'命令来观察，数据库超时参数配置是否合理(时间单位：秒)。
 
-![image.png](assets/image-20220415151423-8a3h9g9.png)
+![image-20220811161520015](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111615052.png)
 
 上述图示可以发现，数据库的活跃线程非常少，而且超时参数也至少有2小时，所以不太可能和配置相关。
 
@@ -33,7 +33,7 @@
 
 在这个报错的第一行出现了proxoolPool_p的数据库别名的字样，我们可以依据这个线索在排查，通过项目搜索发现这个数据库在一个proxoolPool_push.xml的文件中：
 
-![image.png](assets/image-20220415154532-89ggmdl.png)
+![image-20220811161544452](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111615522.png)
 
 并进一步发现这个数据连接的是不通的，所以问题很可能出现在这里。
 
@@ -45,7 +45,7 @@
 
 我们在项目的日志功能中刚好有一个线程池监控的功能，对于这个数据库连接的监控如下：
 
-![image.png](assets/image-20220415155329-rgzdr6z.png)
+![image-20220811161600027](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202208111616069.png)
 
 这个数据显示有5个连接是正常的，也就是现在的连接可以正常访问这个数据库了。
 
