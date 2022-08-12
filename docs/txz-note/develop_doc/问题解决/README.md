@@ -1,6 +1,7 @@
 - [返回上一级 [develop_doc]](txz-note/develop_doc/)
 - [问题解决](txz-note/develop_doc/问题解决/)
-  - [B模块生产环境出现Connection timed out问题](txz-note/develop_doc/问题解决/B模块生产环境出现Connection timed out问题.md)
+  - [B模块安全漏洞修复](txz-note/develop_doc/问题解决/B模块安全漏洞修复.md)
+  - [B模块生产环境出现ConnectionTimedOut问题](txz-note/develop_doc/问题解决/B模块生产环境出现ConnectionTimedOut问题.md)
   - [iframe跨域嵌入白屏问题](txz-note/develop_doc/问题解决/iframe跨域嵌入白屏问题.md)
   - [Strut2漏洞升级引发的兼容性问题](txz-note/develop_doc/问题解决/Strut2漏洞升级引发的兼容性问题.md)
   - [top+jstack排查线程问题](txz-note/develop_doc/问题解决/top+jstack排查线程问题.md)
