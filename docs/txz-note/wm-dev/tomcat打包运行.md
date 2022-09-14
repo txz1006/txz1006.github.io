@@ -6,6 +6,24 @@
 
 从图中我们可以知道，项目的结构是以webapp下的结构为基础的，主要有META-INF、WEB-INF和其他资源文件
 
+```java
+在开发中经常会用到classpath：xxx.xml的格式来读取文件，其中的classpath一般指的是WEB-INF文件夹。
+
+如果想要一次性读取多个文件，则可以使用classpath*:context/conf/controller*.xml来批量加载(少用，较)
+
+private static final ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
+//location为classpath:mapper/**/*.xml
+private Resource[] getResources(String location) {
+    try {
+        return resourceResolver.getResources(location);
+    } catch (IOException var3) {
+        return new Resource[0];
+    }
+}
+```
+
+
+
 而WEB-INF下的内容尤为关键，主要有三个部分：classes文件夹主要用来存储/src/main/java下java文件编译后的class文件和/src/main/resources下的配置资源文件(也可以配置其他main下的其他配置文件夹，如增加一个config文件下的内容，这样在build项目时会将这些资源文件复制到classes下面)；
 
 ![image-20210926150009734](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202109261500069.png)

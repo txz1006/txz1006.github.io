@@ -131,3 +131,7 @@ public void afterPropertiesSet() throws Exception {
 
 通过如此配置后，我们就可以直接在IOC容器中获取sqlSessionFactory对象了。
 
+```
+注意该Bean还实现了InitializingBean接口，SqlSessionFactoryBean作为Bean实例化时会先执行afterPropertiesSet()方法后再实例化SqlSessionFactory对象时才会执行FactoryBean.getObject()
+```
+

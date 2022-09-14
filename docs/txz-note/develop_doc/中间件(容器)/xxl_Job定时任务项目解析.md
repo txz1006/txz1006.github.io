@@ -73,6 +73,7 @@ public class XxlJobSpringExecutor extends XxlJobExecutor implements ApplicationC
                         });
             //...
             //用一个MethodJobHandler对象记录bean中和xxljob注解相关的Method，并注册存放到一个全局Map中
+            //类似于spring bean工厂，之后由注册中心rpc来反射触发客户端任务方法的执行
             registJobHandler(name, new MethodJobHandler(bean, executeMethod, initMethod, destroyMethod));
         }
     }

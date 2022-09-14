@@ -22,8 +22,8 @@ public static void main(String[] args) {
                 @Override
                 protected void initChannel(NioSocketChannel channel) throws Exception {
                     //增加编码解码对象
-                    socketChannel.pipeline().addLast(new StringEncoder());
-                    socketChannel.pipeline().addLast(new StringDecoder());
+                    channel.pipeline().addLast(new StringEncoder());
+                    channel.pipeline().addLast(new StringDecoder());
                     
                     channel.pipeline().addLast(new FirstServerHandler());
                 }
