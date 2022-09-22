@@ -8,6 +8,8 @@ Dubbo就是搭建在服务和服务之间的通信桥梁，他提供了远程通
 
 当然，不使用Dubbo，使用Http等其他通信方式也可以完成这些功能，但是这需要开发者做很多底层的工作，如数据通信格式、负载均衡策略、超时异常重试等等。这些工作Dubbo都已经帮开发者做好了，这就是他价值的体现。
 
+下载dubbo-samples-master工程项目在dubbo-samples-basic子模块中分别启动EmbeddedZooKeeper#start、BasicProvider#main和BasicConsumer#main，然后debug代码调用流程。
+
 #### 2.Dubbo中的SPI机制
 
 Dubbo自己实现了SPI机制，这个功能比JDK提供的SPI功能更加强大，他可以指定接口要加载的具体实现类对象。下面就这个SPI机制来分析源码。

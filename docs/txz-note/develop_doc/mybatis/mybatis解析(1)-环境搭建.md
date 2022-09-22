@@ -146,7 +146,7 @@ public class MapperFactoryBean<T> extends SqlSessionDaoSupport implements Factor
     //...
 }
 
-
+//MybatisMapperRegistry中
 public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
     final MapperProxyFactory<T> mapperProxyFactory = (MapperProxyFactory<T>) knownMappers.get(type);
     if (mapperProxyFactory == null) {
