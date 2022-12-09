@@ -33,6 +33,34 @@ git reset --hard XXXXXX(就是复制的版本号)
 
   提交到远程的新分支中：git push --set-upstream origin branch1
 
+==================
 
+- 本地项目提供到远程git仓库
+
+  一、进到代码项目的根目录
+
+  二、初始化本地仓库，命令：git init
+  在命令行窗口输入“git init”，初始化本地仓库，初始化完后会生产一个.git文件夹，这个就是关于此项目本地仓库的一些快照数据等。
+
+  三、设置提交的用户名及邮箱，命令：
+  git config --global user.name
+  git config --global user.email
+
+  –签名配置完成后，可以隐藏目录下找到config，查看或编辑签名。假如工作中又来了一个项目，但这个项目的账密想签别的名字。可以在工程下修改。
+  但一般在公司中多个项目都一样的配置就没必要放在隐藏目录下，可直接配全局的。例如：git config --global user.name “zhang3”
+  全局配置默认路径为：C/Users/Adminnistator/.gitconfig 优先用项目中的配置，如果项目中没有，则用全局的配置。
+
+  四、连接GitHub远程仓库，命令：git remote add origin https://github.com/xxxxx/test.git
+  git remote add origin 你自己的https地址
+
+  五、拉取仓库中的代码，保证本地git版本和远程命令：git pull --rebase origin master
+
+  六、添加文件，命令：git add .
+  这是将文件添加到暂存区命令，但是并没有提交到服务器上
+
+  七、添加提交信息，命令：git commit -m "提交信息"
+
+  八、提交代码，命令：git push -u origin master
 
 - 
+

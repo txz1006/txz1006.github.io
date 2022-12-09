@@ -127,7 +127,7 @@ spring中BeanProcessor接口解析
   执行CustomerInitialPostProcessor的PostConstruct
   执行CustomerPostProcessor的构造方法
   执行CustomerPostProcessor的PostConstruct
-      
+  
   bean初始化前执行：class为net.postProcessor.FirstBean|beanName为firstBean
   FirstBean构造方法！hello
   bean初始化后执行：Object为net.postProcessor.FirstBean@79179359|beanName为firstBean

@@ -227,6 +227,14 @@ nginx缓存静态资源：
         expires 90d;
         add_header wall "hey!guys!give me a star.";
     }
+    
+    #或者如下配置
+    location ~ \.(gif|jpg|png|css|js)$ {
+        proxy_pass https://api.17wanxiao.com;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 ```
 
 参考：https://www.jb51.net/article/139828.htm

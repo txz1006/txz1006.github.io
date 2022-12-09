@@ -52,6 +52,41 @@ java -jar arthas-boot.jar
 
 按照不同菜单分为三大块，最上面部分是各线程的CPU使用排行，中间一部分是jvm的内存占用情况，最下面的部分是操作系统等依赖环境情况。
 
+```
+线程区域
+ID： Java级别的县城ID，这个ID不能跟jstack中的nativeID一一对应
+NAME: 线程名
+GROUP: 线程组名
+PRIORITY: 线程优先级，只是JAVA给操作系统建议的一种优先级
+STATE:线程的状态
+CPU%:线程CPU的使用率。比如采样间隔为1000ms，某个线程的增量cpu时间为100ms，则CPU的使用率=100/1000 = 10%
+DELTA_TIME:上次采样之后线程运行增量CPU的时间，单位为秒
+TIME:线程运行总CPU时间，数据格式为分:秒
+INTERRUPTED:线程当前是否出去中断的状态
+DAEMON:是否为守护线程
+内存区域
+heap：堆内存信息
+eden_space：新生代中的eden区占用内存信息
+survivor_space：新生代中survivor区占用内存信息
+tenured_gen：老年代的内存占用信息
+nonheap：非堆的内存占用信息（非堆就是JVM留给自己用的，所以方法区、JVM内部处理或优化所需的内存(如JIT编译后的代码缓存)、每个类结构(如运行时常数池、字段和方法数据)以及方法和构造方法的代码都在非堆内存中）
+code_cache：JIT缓存区域占用内存信息
+metaspace：元数据区占用内存信息（受操作系统内存大小的限制）
+compressed_class_space：指针压缩 用32位的offset代表64位的classpointer
+direct：直接内存
+mapped：内存映射缓冲区（一般来说频繁读写文件可能导致此区域偏高）
+系统信息区域
+os.name：操作系统名称
+os.version：操作系统版本
+java.version：JAVA版本
+java.home：JDK路径
+systemload.average：平均负载（这个参数的意义暂时未知）
+processors：处理器个数
+timestamp/uptime：当前时间戳/当前系统启动时间-现在
+```
+
+其他命令参数解析：https://blog.csdn.net/lydms/article/details/125238249
+
 ### 常用排查的命令
 
 #### jad反编译java类
