@@ -429,7 +429,7 @@ ThreadLocal可以保证线程之间的数据隔离
 	}
 ```
 
-2.处理SimpleDateFormat线程不安全问题，因为期内的calendar对象是成员变量，并发情况下会被多次改动
+2.处理SimpleDateFormat线程不安全问题，因为SimpleDateFormat对象父类DateFormat中的calendar对象是公用成员变量，并发情况下会被多次改动
 
 ```java
 //每个线程创建一个SimpleDateFormat对象

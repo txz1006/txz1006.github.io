@@ -62,5 +62,26 @@ git reset --hard XXXXXX(就是复制的版本号)
 
   八、提交代码，命令：git push -u origin master
 
+##### 推送现有文件夹
+
+```
+cd existing_folder
+git init
+git remote add origin git@gitcode.net:CreativeAlliance/gateapi-1345-pwb-center.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+```
+
+##### 推送现有的 Git 仓库
+
+```
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin git@gitcode.net:CreativeAlliance/gateapi-1345-pwb-center.git
+git push -u origin --all
+git push -u origin --tags
+```
+
 - 
 
