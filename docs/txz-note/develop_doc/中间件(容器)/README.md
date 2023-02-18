@@ -10,6 +10,7 @@
   - [redis-7(哨兵集群)](txz-note/develop_doc/中间件(容器)/redis-7(哨兵集群).md)
   - [RocketMQ-1(基础介绍)](txz-note/develop_doc/中间件(容器)/RocketMQ-1(基础介绍).md)
   - [RocketMQ-2(架构简析)](txz-note/develop_doc/中间件(容器)/RocketMQ-2(架构简析).md)
+  - [sentinel-1(基础操作)](txz-note/develop_doc/中间件(容器)/sentinel-1(基础操作).md)
   - [Tomcat源码解析(01)-tomcat架构总览](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(01)-tomcat架构总览.md)
   - [Tomcat源码解析(02)](txz-note/develop_doc/中间件(容器)/Tomcat源码解析(02).md)
   - [xxl_Job定时任务项目解析](txz-note/develop_doc/中间件(容器)/xxl_Job定时任务项目解析.md)
