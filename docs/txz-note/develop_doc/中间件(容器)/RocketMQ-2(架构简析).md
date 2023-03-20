@@ -52,6 +52,10 @@ NameServer是RocketMQ中的路由管理中心，每个NameServer会记录下所�
 
 Broker节点把信息注册到NameServer后，之后会有一个心跳检查机制，每隔30S所有Broker就会发送一次心跳信息给NameServer，NameServer收到信息后会更新这个节点的最新存活状态。而NameServer则会每隔10S遍历一次所有的Broker状态，如果有Broker节点有120S没有发送心跳信息，那么NameServer就会认为这个节点宕机了，将这个节点信息改为宕机状态。
 
+##### 如果NameServer挂了还能正常路由吗？
+
+可以的，生产者、消费者的本地会有一份NameServer数据，只是没法再从NameServer中拉取最新数据了
+
 **生产者如何避免发送信息给已经宕机了的Broker？**
 
 一般来说有两者方式常用：
