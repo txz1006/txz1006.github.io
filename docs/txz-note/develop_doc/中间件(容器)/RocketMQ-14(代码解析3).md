@@ -30,7 +30,155 @@ sh ${ROCKETMQ_HOME}/bin/runbroker.sh org.apache.rocketmq.broker.BrokerStartup $@
 
 所以这个BrokerController就是BrokerServer服务的最核心类了，我们后面的学习也是围绕的这个对象来进行的。
 
-### BrokerController是如何创建和初始化的
+### BrokerController是如何创建的
 
 根据之前的经验，我们可以直接去createBrokerController(args)方法看BrokerController组件的创建过程。
 
+![image-20230413134741081](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131347122.png)
+
+我们首先看到的就是这一类的配置信息代码，System.setProperty是设置项目环境变量的，NettySystemConfig配置的是Netty缓冲池大小。
+
+这些东西并不需要大家去探索是在什么地方用到了这些配置，也不需要去想为什么要在这种地方写这样的代码，只需要有有个印象就行，知道在BrokerServer启动前，配置好多的变量参数，这些参数会在后续的业务场景中被用到就OK了。
+
+因为你只是一个学习者，并不是一个熟知RocketMQ的开发者，维护者；所以初学阶段，我们的目的应该是跑通MQ的启动链路和一些常用场景的业务链路即可，这些不知道什么时候才会用的变量信息，可以等到你对MQ有一个整体概念后，可以慢慢的去摸索。
+
+在上面的环境变量设置完后，后面的代码是这样的：
+
+![image-20230413135815343](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131358390.png)
+
+这块的代码大家肯定不陌生，之前在NameServer启动过程中也有这样的配置对象；这里代码的主要逻辑是创建了4个配置对象，BrokerConfig是当前broker配置对象，NettyServerConfig是Broker作为服务端的配置对象，NettyClientConfig是Broker作为客户端的配置对象，MessageStoreConfig是Broker的持久化配置对象。
+
+这里大家可能会疑惑，为什么要在Broker中有客户端的配置对象NettyClientConfig呢？
+
+实际上，大家想一想MQ的通信关系就能明白了，Broker和生产者和消费者交互的时候，是作为一个服务端存在的，生产者发送消息到Broker，消费者从Broker中拉取最新消息；但是Broker和NameServer的交互是作为客户端存在的，因为Broker要注册到所有NameServer中，同时还要定时为NameServer发送心跳请求。
+
+接着往下走，看到的同样参数解析规则：
+
+![image-20230413141650297](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131416341.png)
+
+从命令行里解析-c的配置文件路径，然后读取到Properties对象中，接着将Properties解析好的参数写入之前的4个配置对象中，最后还记录一下broker本地配置文件的路径。
+
+再往下走，就是一些配置参数格式校验和核心启动代码了，这里我就贴一下关键的代码片段：
+
+```java
+ //是否开启DLeger技术管理主从broker之间的CommitLog同步
+if (messageStoreConfig.isEnableDLegerCommitLog()) {
+    brokerConfig.setBrokerId(-1);
+}
+
+//.....
+
+//基于4个配置，创建BrokerController对象
+final BrokerController controller = new BrokerController(
+    brokerConfig,
+    nettyServerConfig,
+    nettyClientConfig,
+    messageStoreConfig);
+// remember all configs to prevent discard
+controller.getConfiguration().registerConfig(properties);
+
+//执行BrokerController对象的初始化
+boolean initResult = controller.initialize();
+if (!initResult) {
+    controller.shutdown();
+    System.exit(-3);
+}
+
+```
+
+以上代码的关键代码就两行，第一行是：
+
+```java
+final BrokerController controller = new BrokerController(
+    brokerConfig,
+    nettyServerConfig,
+    nettyClientConfig,
+    messageStoreConfig);
+```
+
+根据4个配置创建BrokerController对象，我们可以进一步看一下BrokerController对象的构造方法的逻辑：
+
+![image-20230413145445179](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131454228.png)
+
+![image-20230413145510373](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131455416.png)
+
+![image-20230413145716230](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131457277.png)
+
+我们可以看到构造方法中有创建非常多的对象，但这里大家没必要搞懂每个对象是干什么的，可以根据类的名称含义和类型先大概给这些成员变量分个类，比如这里我们可以简单将BrokerController的成分分为核心管理器组件和线程池两大部分，然后我们就可以根据这些信息来画个概况图：
+
+![image-20230413151444419](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131514462.png)
+
+### BrokerController是如何初始化
+
+```
+boolean initResult = controller.initialize();
+```
+
+在BrokerController实例化后，紧接着就进行初始化，我们接下来看看BrokerController初始化方法中做了哪些业务。
+
+![image-20230413154228162](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131542198.png)
+
+首先从磁盘中加载各种Topic相关的配置或消费状态、消费过滤等信息，如果这些信息都被成功的加载，则接着执行以下代码：
+
+
+![image-20230413153327812](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131533865.png)
+
+这块代码主要是创建了一个DefaultMessageStore对象，从变量名称来看是用来做消息持久化用的，大概率将消息写入到CommitLog的操作就是这个对象来完成的。
+
+之后判断是否开启了DLeger机制，开启了就创建DLedgerRoleChangeHandler处理对象放到messageStore中，相当于使用DLeger机制接管了MQ的主从同步，消息持久化等功能。
+
+之后创建的BrokerStats是信息统计用的，后面的代码我们也可以先不用关系，他们不是主流程中的必要关注代码。
+
+messageStore对象创建完后，接着就是初始化的核心代码部分，代码片段如下：
+
+![image-20230413153836944](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131538990.png)
+
+以上代码中，创建了两个Netty服务器，一个是remotingServer、另一个是fastRemotingServer，之后往下的代码是一对线程池，从线程池的变量名称我们可以知道这些线程池大概是什么场景使用的。
+
+再接着看剩下的代码，基本就是BrokerController中的一个定时线程池scheduledExecutorService，定时执行各种业务规则，比如统计信息，持久化各种消费数据到磁盘文件等等。
+
+![image-20230413155706108](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131557162.png)
+
+到这里，BrokerController的初始化流程基本就完成了，后面其实还有一些，事务、权限、安全认证一类的代码，但这些统统都不是影响MQ主要功能正常执行的部分组件，所以我们的可以暂时的忽略掉他们，到这里为止我们可以简单的总结下BrokerController组件的内容有哪些了：
+
+![image-20230413161856478](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131618514.png)
+
+
+
+### BrokerController是如何启动的
+
+我们回到最开始的org.apache.rocketmq.broker.BrokerStartup#main方法中，我们到start()方法中看看启动做了哪些工作。
+
+![image-20230413162013917](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131620956.png)
+
+一下是start方法主要代码片段：
+
+![image-20230413164053750](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131640793.png)
+
+这个方法中全是一堆BrokerController成员变量组件的启动代码，这里我们也不必过于深究每个组件的start方法细节实现，因为代码毕竟是别人写的，在这么一个复杂的框架体系下，如果不涉及具体使用场景，谁知道这些个组件是干什么的，而且你现在去看messageStore、remotingServer、fastRemotingServer、brokerOuterAPI等这些组件的实现，你能理解几层？
+
+大多数代码都是为了业务场景而写的，我们可以在后续的场景流程学习中去慢慢探索这些组件的用途。现在我们只需要有个概念，知道有这么个东西就可以了。
+
+接着是最后一块，而且比较重要的代码：
+
+![image-20230413165330769](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131653815.png)
+
+这是一个定时任务，我们可以从方法名称知道这是一个注册接口，我们进到其中看一下注册到了哪个地方，具体代码如下：
+
+![image-20230413170006367](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131700418.png)
+
+这段代码并不完整，但从中我们可以知道，Broker这里注册到的位置是nameServerAddressList，也就是NameServer集群的地址列表，之后就是创建Request请求发送到各个NameServer了。
+
+在开启Broker注册NameServer的定时任务后，BrokerController的主流程基本就走完了。
+
+到这里我们可以初步的画一个Broker和NameServer的交互图了：
+
+![image-20230413171155492](https://alex-img-1253982387.cos.ap-nanjing.myqcloud.com/Typora-wm/202304131711545.png)
+
+最后，我们可以总结一下Broker的启动过程：
+
+1. Broker启动后，需要将当前服务注册到NameServer中，这过程是BrokerOuterAPI组件完成的
+2. Broker作为服务端启动了两个NettyServer，一个是fastNettyServer，用于接收外部的请求，至于这两个服务器用途区别，我们以后再分析
+3. NettyServer接收到请求后，请求会交给线程池来处理，所以一定会有各种线程池来处理各种各样的请求
+4. 线程池处理请求时，一定会组合使用BrokerController中的各种组件来完成业务流程，比如将请求的消息持久化到CommitLog文件中，写入索引到idnexfile和customerQueue文件中等等
+5. 此外，会有各种定时线程池任务，定期的统计、心跳、检查状态等等
