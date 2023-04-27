@@ -1,0 +1,12 @@
+{
+  "HomePath": "E:\\txz1006\\中间件(容器)",
+  "IgnoreFile": [
+  	"assets", "_media", "_coverpage", "_resources", "DocsifyBuildSidebar-win-x64"
+  ],
+  "IgnoreDir": [
+    ".git", "assets", "_media", "_coverpage", "_resources", "DocsifyBuildSidebar-win-x64"
+  ],
+  "IgnoreDirNameContain": [
+    ".assets", "assets", "_media", "_coverpage", "_resources", "DocsifyBuildSidebar-win-x64"
+  ]
+}

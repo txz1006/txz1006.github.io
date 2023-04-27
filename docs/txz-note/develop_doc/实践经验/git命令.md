@@ -5,6 +5,7 @@
 - git删除文件夹：git rm -f <文件夹名>/
 - git提交暂存区文件到本地仓库：git commit -m '提交日志'
 - git关联服务器端git地址：git remote add origin https://XXXX.git
+- git修改关联远程git地址：git remote set-url origin git@gitee.com:Alex1713/rocketmq-4.6.1.git
 - git推送本地仓库到服务器主分支(-u选择分支后，之后推送可以省略-u及分支信息)：git push -u origin main
 - git拉取服务器新文件到本地：git pull -u origin main
 - git切换本地仓库的分支(没有则会新建)：git checkout -b XXX-tree
