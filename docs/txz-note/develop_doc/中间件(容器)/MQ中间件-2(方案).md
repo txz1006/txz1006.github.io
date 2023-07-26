@@ -11,6 +11,8 @@
 
 ### redis库存扣减分端加锁
 
+先incr获取次数值，然后对活动id+次数进行分布式加锁，即使incr获取次数值重复也不会存在超库存问题。当然也可以将加锁和incr合并为一个lua事务脚本来执行，但是这样性能会稍差一些。
+
 ```java
 //stockCount为中库存数
 public Result subActivityBillByRedis(String uid, long activityId, Integer stockCount) {
