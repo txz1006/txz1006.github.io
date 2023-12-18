@@ -80,6 +80,14 @@ public interface DvlpAgentCheckComplainMapper extends BaseMapper<DvlpAgentCheckC
 
 该接口有两个参数：Page参数会自动给sql加上limit x X语句，Wrapper参数会给sql加上查询条件(注意要使用@Param注解和sql中使用${ew.customSqlSegment}占位符，不能加where关键字)
 
+注意，这里Wrapper条件对象一定最好要是和数据表对应的实体类，不然会出现ew.customSqlSegment报错的问题。如果非要用自定义参数对象，可以通过如下的代码初始化：
+
+```java
+TableInfoHelper.initTableInfo(new MapperBuilderAssistant(new MybatisConfiguration(), ""), PayOrderCheckAggregateDTO.class);
+```
+
+
+
 **3.service层查询**
 
 ```java
